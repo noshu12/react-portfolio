@@ -1,6 +1,6 @@
 # 🚀 Noushad Alam - React Portfolio Website
 
-> A modern, fully responsive portfolio built with React and Vite, featuring a frontend-only email contact system.
+> A modern, fully responsive portfolio built with React and Vite, showcasing skills, services, and projects.
 
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-blue)
@@ -15,7 +15,7 @@ This repository contains the latest production-ready version of the portfolio we
 ### ✨ Latest Updates
 
 - ⚛️ Migrated to a **frontend-only React + Vite** architecture
-- 📧 Added **EmailJS contact form** without backend dependency
+- 📧 Clean, modern contact section with direct links
 - 🔒 Hardened environment security via `.gitignore` rules
 - 🧹 Removed old backend files, workflows, and unnecessary modules
 - 📱 Kept mobile-first responsiveness and smooth UI interactions
@@ -28,7 +28,6 @@ This repository contains the latest production-ready version of the portfolio we
 - **React 19**
 - **Vite 8**
 - **CSS3**
-- **EmailJS Browser SDK**
 
 ### Skills Showcased in Portfolio
 - Python Development
@@ -43,7 +42,7 @@ This repository contains the latest production-ready version of the portfolio we
 ## 📂 Project Structure
 
 ```text
-react-nest-portfolio/
+react-portfolio/
 ├── frontend/
 │   ├── public/
 │   ├── src/
@@ -79,7 +78,7 @@ Project cards with stack details and GitHub links.
 Learning and growth milestones.
 
 ### 7. **Contact**
-Frontend EmailJS form plus direct fallback links (email/phone).
+Contact me by using the Email and Phone Number
 
 ---
 
@@ -103,12 +102,7 @@ Frontend EmailJS form plus direct fallback links (email/phone).
   cp .env.example .env
   ```
 
-4. **Add EmailJS values in `.env`**
-  - `VITE_EMAILJS_SERVICE_ID`
-  - `VITE_EMAILJS_TEMPLATE_ID`
-  - `VITE_EMAILJS_PUBLIC_KEY`
-
-5. **Run development server**
+4. **Run development server**
   ```bash
   npm run dev
   ```
@@ -121,21 +115,6 @@ Frontend EmailJS form plus direct fallback links (email/phone).
 npm run build
 ```
 
----
-
-## 📧 EmailJS Setup Notes
-
-If contact submission fails:
-
-1. Confirm service/template/public key values in `.env`
-2. Ensure EmailJS template variables include:
-  - `from_name`
-  - `reply_to`
-  - `subject`
-  - `message`
-3. Add allowed origins in EmailJS security settings:
-  - `http://localhost:5173` (or your local dev port)
-  - Your deployed Vercel domain
 
 ---
 

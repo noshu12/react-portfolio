@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState } from 'react';
-import emailjs from '@emailjs/browser';
 import './App.css';
 
 const sections = ['home', 'about', 'services', 'portfolio', 'contact'];
@@ -190,23 +189,6 @@ function App() {
   const [activeSection, setActiveSection] = useState('home');
   const [showTop, setShowTop] = useState(false);
   const [filter, setFilter] = useState('all');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formNotice, setFormNotice] = useState({ type: '', text: '' });
-
-  const emailJsServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const emailJsTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const emailJsPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-  const isEmailJsConfigured =
-    Boolean(emailJsServiceId) &&
-    Boolean(emailJsTemplateId) &&
-    Boolean(emailJsPublicKey);
-
-  useEffect(() => {
-    if (emailJsPublicKey) {
-      emailjs.init({ publicKey: emailJsPublicKey });
-    }
-  }, [emailJsPublicKey]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -238,78 +220,6 @@ function App() {
   const handleNavClick = (id) => {
     setMenuOpen(false);
     setActiveSection(id);
-  };
-
-  const handleFormSubmit = async (event) => {
-    event.preventDefault();
-    setFormNotice({ type: '', text: '' });
-
-    if (!isEmailJsConfigured) {
-      setFormNotice({
-        type: 'error',
-        text: 'Email service is not configured yet. Add EmailJS keys in frontend environment variables.',
-      });
-      return;
-    }
-
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    const payload = {
-      name: String(formData.get('name') || '').trim(),
-      email: String(formData.get('email') || '').trim(),
-      subject: String(formData.get('subject') || '').trim(),
-      message: String(formData.get('message') || '').trim(),
-    };
-
-    if (!payload.name || !payload.email || !payload.subject || !payload.message) {
-      setFormNotice({ type: 'error', text: 'Please fill out all fields.' });
-      return;
-    }
-
-    if (payload.message.length < 10) {
-      setFormNotice({ type: 'error', text: 'Message must be at least 10 characters long.' });
-      return;
-    }
-
-    setIsSubmitting(true);
-
-    try {
-      await emailjs.send(emailJsServiceId, emailJsTemplateId, {
-        from_name: payload.name,
-        reply_to: payload.email,
-        subject: payload.subject,
-        message: payload.message,
-      });
-
-      setFormNotice({
-        type: 'success',
-        text: 'Message sent successfully. Thank you for reaching out.',
-      });
-      form.reset();
-    } catch (error) {
-      const status = error?.status;
-      const message = String(error?.text || '').toLowerCase();
-
-      if (status === 403 || message.includes('forbidden') || message.includes('origin')) {
-        setFormNotice({
-          type: 'error',
-          text: 'Email service blocked this request. Add your domain in EmailJS allowed origins and try again.',
-        });
-      } else if (status === 400 || message.includes('template')) {
-        setFormNotice({
-          type: 'error',
-          text: 'Email template configuration is invalid. Check EmailJS template fields and IDs.',
-        });
-      } else {
-        setFormNotice({
-          type: 'error',
-          text: 'Unable to send message right now. Please try again or use direct contact links.',
-        });
-      }
-    }
-    finally {
-      setIsSubmitting(false);
-    }
   };
 
   return (
@@ -569,53 +479,39 @@ function App() {
       <section className="contact section" id="contact">
         <div className="container">
           <div className="section-title">
-            <h2>Start A <span>Conversation</span></h2>
-            <p>Reach out for collaborations, freelance work, or project discussions</p>
+            <h2>Get In <span>Touch</span></h2>
+            <p>Connect with me for collaborations, freelance work, or just to say hello</p>
           </div>
           <div className="contact-content">
-            <div className="contact-info">
+            <div className="contact-info-wrapper">
               <div className="contact-item">
                 <div className="contact-icon"><i className="fas fa-envelope"></i></div>
-                <div className="contact-text"><h3>Email</h3><p>alamnoushad081@gmail.com</p></div>
+                <div className="contact-text">
+                  <h3>Email</h3>
+                  <p><a href="mailto:alamnoushad081@gmail.com">alamnoushad081@gmail.com</a></p>
+                </div>
               </div>
               <div className="contact-item">
                 <div className="contact-icon"><i className="fas fa-phone"></i></div>
-                <div className="contact-text"><h3>Phone</h3><p>+92 314 8005977</p></div>
+                <div className="contact-text">
+                  <h3>Phone</h3>
+                  <p><a href="tel:+923148005977">+92 314 8005977</a></p>
+                </div>
               </div>
               <div className="contact-item">
                 <div className="contact-icon"><i className="fas fa-map-marker-alt"></i></div>
-                <div className="contact-text"><h3>Location</h3><p>Karachi, Pakistan</p></div>
+                <div className="contact-text">
+                  <h3>Location</h3>
+                  <p>Karachi, Pakistan</p>
+                </div>
               </div>
               <div className="contact-social">
-                <a href="https://www.facebook.com/alamnoushad081?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className="social-link"><i className="fab fa-facebook-f"></i></a>
-                <a href="https://www.linkedin.com/in/noushad-alam-a959b3252" target="_blank" rel="noopener noreferrer" className="social-link"><i className="fab fa-linkedin-in"></i></a>
-                <a href="https://github.com/noshu12" target="_blank" rel="noopener noreferrer" className="social-link"><i className="fab fa-github"></i></a>
-              </div>
-            </div>
-            <div className="contact-form">
-              <form action="#" method="post" onSubmit={handleFormSubmit}>
-                <div className="form-group"><input type="text" name="name" placeholder="Your Name" required /></div>
-                <div className="form-group"><input type="email" name="email" placeholder="Your Email" required /></div>
-                <div className="form-group"><input type="text" name="subject" placeholder="Subject" required /></div>
-                <div className="form-group"><textarea name="message" placeholder="Your Message" rows="5" required></textarea></div>
-                {formNotice.text ? (
-                  <p className={`form-notice form-notice-${formNotice.type}`} role="status" aria-live="polite">
-                    {formNotice.text}
-                  </p>
-                ) : null}
-                <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
-                  <i className="fas fa-paper-plane"></i> {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-              </form>
-              <div className="contact-static">
-                <h3>Direct Contact</h3>
-                <p>If the form is unavailable, use direct contact options.</p>
-                <a className="btn btn-secondary" href="mailto:alamnoushad081@gmail.com">
-                  <i className="fas fa-envelope"></i> Email Me
-                </a>
-                <a className="btn btn-secondary" href="tel:+923148005977">
-                  <i className="fas fa-phone"></i> Call Me
-                </a>
+                <h3>Follow Me</h3>
+                <div className="social-links">
+                  <a href="https://www.facebook.com/alamnoushad081?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
+                  <a href="https://www.linkedin.com/in/noushad-alam-a959b3252" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
+                  <a href="https://github.com/noshu12" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="GitHub"><i className="fab fa-github"></i></a>
+                </div>
               </div>
             </div>
           </div>
