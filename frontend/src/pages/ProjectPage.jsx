@@ -1,9 +1,9 @@
 import { useSearchParams } from 'react-router-dom'
-import Portfolio from '../components/Portfolio'
+import Project from '../components/Project'
 
-export default function PortfolioPage() {
+export default function ProjectPage() {
   const [searchParams] = useSearchParams()
   const serviceFilter = searchParams.get('service')
 
-  return <Portfolio filterByService={serviceFilter} />
+  return <Project filterByService={serviceFilter} />
 }

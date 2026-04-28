@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
-import PortfolioPage from './pages/PortfolioPage'
+import ProjectPage from './pages/ProjectPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import './App.css'
@@ -38,7 +38,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage onServiceClick={handleServiceClick} />} />
-          <Route path="/portfolio" element={<PortfolioPage filterByService={filterByService} />} />
+          <Route path="/project" element={<ProjectPage filterByService={filterByService} />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>
