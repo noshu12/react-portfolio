@@ -159,34 +159,6 @@
   }
 }
 
-.scroll-hint {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  animation: bounce 2s infinite;
-}
-
-.scroll-hint p {
-  color: #888;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  font-weight: 300;
-}
-
-.scroll-down {
-  width: 2px;
-  height: 20px;
-  background: linear-gradient(180deg, #FFC107, transparent);
-  margin: 0 auto;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(-10px); }
-  50% { transform: translateY(0); }
-}
-
 @keyframes slideInLeft {
   from {
     opacity: 0;

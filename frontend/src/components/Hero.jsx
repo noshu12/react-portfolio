@@ -47,11 +47,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      <div className="scroll-hint">
-        <p>Scroll to explore</p>
-        <div className="scroll-down"></div>
-      </div>
     </section>
   )
 }
