@@ -43,13 +43,6 @@ export default function Contact() {
             <a href="mailto:alamnoushad081@gmail.com" className="info-link">Send Email →</a>
           </div>
 
-          <div className="info-card premium-card">
-            <div className="info-icon">📱</div>
-            <h3>Phone</h3>
-            <p>+92 314 8005977</p>
-            <a href="tel:+923148005977" className="info-link">Call Now →</a>
-          </div>
-
           <div className="social-card premium-card">
             <h3>Follow Me</h3>
             <div className="social-links">

@@ -1,151 +1,203 @@
-# 🚀 Noushad Alam - React Portfolio Website
+# 🚀 Noushad Alam - AI & Data Engineering Portfolio
 
-> A modern, fully responsive portfolio built with React and Vite, showcasing skills, services, and projects.
+> A blazingly fast, modern portfolio showcasing innovative AI/ML projects, data engineering solutions, and full-stack development expertise. Built with cutting-edge web technologies for maximum performance and user experience.
 
-![Status](https://img.shields.io/badge/Status-Active-brightgreen)
-![License](https://img.shields.io/badge/License-MIT-blue)
-![Version](https://img.shields.io/badge/Version-2.0.0-blueviolet)
+<div align="center">
+
+![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
+![React](https://img.shields.io/badge/React-19.2.4-61DAFB?style=flat-square&logo=react)
+![Vite](https://img.shields.io/badge/Vite-8.0.4-646CFF?style=flat-square&logo=vite)
+![React Router](https://img.shields.io/badge/React_Router-6.0-F44250?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
+
+[Live Demo](#-live-demo) • [Features](#-features) • [Tech Stack](#-technologies) • [Getting Started](#-quick-start) • [Contact](#-contact-me)
+
+</div>
 
 ---
 
-## 📋 Overview
+## 💡 About This Project
 
-This repository contains the latest production-ready version of the portfolio website. It showcases skills, services, and project work in a clean, fast, and responsive interface.
+This is a **production-ready, fully responsive portfolio website** designed to showcase a passionate AI and Data Engineer's work. It features:
 
-### ✨ Latest Updates
+- 🎯 **Multi-page routing** with seamless navigation (Home, Services, Portfolio, About, Contact)
+- 🎨 **Glassmorphism design** with smooth animations and gradient effects
+- ⚡ **Optimized performance** with Vite's lightning-fast build system
+- 📱 **Fully responsive** across all devices (mobile, tablet, desktop)
+- 🔗 **5 verified projects** with live GitHub links
+- 🛠️ **6 core services** showcased with filterable portfolio
+- 💼 **Professional skills** with proficiency levels
+- 📧 **Direct contact options** via email and contact form
 
-- ⚛️ Migrated to a **frontend-only React + Vite** architecture
-- 📧 Clean, modern contact section with direct links
-- 🔒 Hardened environment security via `.gitignore` rules
-- 🧹 Removed old backend files, workflows, and unnecessary modules
-- 📱 Kept mobile-first responsiveness and smooth UI interactions
+---
+
+## 🌐 Live Demo
+
+🔗 **[View Live Portfolio](https://noushad-portfolio.vercel.app)** _(deployed on Vercel)_
+
+---
+
+## ✨ Key Features
+
+### 🎭 Modern UI/UX
+- Glassmorphic design with backdrop blur effects
+- Smooth animations and floating blob effects
+- Gradient text animations
+- Responsive mobile-first approach
+
+### 🧭 Smart Navigation
+- **React Router v6** for true multi-page routing
+- Fixed sticky navbar with mobile hamburger menu
+- Service-to-portfolio filtering (click a service → see related projects)
+- Smooth page transitions
+
+### 📊 Project Showcase
+- **5 Real Projects** with working GitHub links:
+  1. My Portfolio (Web Development)
+  2. Web Scraping to SQL Analytics (Data Engineering)
+  3. Coin Market Scraping (Web Scraping)
+  4. Netflix Data Pipeline (Data Engineering)
+  5. Scrape2Insights (Data Engineering)
+
+### 🛠️ Services Offered
+- Python Development
+- SQL & Databases
+- Artificial Intelligence
+- Data Engineering
+- Cloud & DevOps
+- Web Development
+
+### 💻 Skills Displayed
+- SQL (80%)
+- AI (70%)
+- Git (75%)
+- Airflow (60%)
+- Data Engineering (65%)
+- Docker (60%)
+- JSON (80%)
+- Algorithms (75%)
+- AI Prompting (85%)
+
+### 📥 CV Download
+- Direct PDF download of professional resume
+- One-click access from multiple sections
 
 ---
 
 ## 🛠️ Technologies Used
 
-### Frontend
-- **React 19**
-- **Vite 8**
-- **CSS3**
-
-### Skills Showcased in Portfolio
-- Python Development
-- SQL Database Management
-- Data Engineering
-- Artificial Intelligence
-- Docker and DevOps Basics
-- Web Development
+| Category | Technologies |
+|----------|--------------|
+| **Frontend Framework** | React 19.2.4 |
+| **Build Tool** | Vite 8.0.4 |
+| **Routing** | React Router DOM v6 |
+| **Styling** | CSS3 (Glassmorphism, Gradients, Animations) |
+| **Fonts** | Google Fonts (Poppins, Playfair Display) |
+| **Icons** | Font Awesome 6.4.0, Emoji |
+| **Deployment** | Vercel |
+| **Version Control** | Git & GitHub |
 
 ---
 
 ## 📂 Project Structure
 
 ```text
-react-portfolio/
+react-nest-portfolio/
 ├── frontend/
 │   ├── public/
+│   │   ├── favicon.svg
+│   │   └── NOUSHAD-ALAM-CV-Resume_main.pdf
 │   ├── src/
-│   ├── .env.example
-│   ├── .gitignore
+│   │   ├── components/
+│   │   │   ├── Navbar.jsx & Navbar.css
+│   │   │   ├── Hero.jsx & Hero.css
+│   │   │   ├── Services.jsx & Services.css
+│   │   │   ├── Portfolio.jsx & Portfolio.css
+│   │   │   ├── About.jsx & About.css
+│   │   │   ├── Contact.jsx & Contact.css
+│   │   │   └── Footer.jsx
+│   │   ├── pages/
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── ServicesPage.jsx
+│   │   │   ├── PortfolioPage.jsx
+│   │   │   ├── AboutPage.jsx
+│   │   │   └── ContactPage.jsx
+│   │   ├── styles/
+│   │   │   └── global.css
+│   │   ├── App.jsx
+│   │   └── main.jsx
 │   ├── package.json
-│   ├── vercel.json
-│   └── vite.config.js
+│   ├── vite.config.js
+│   └── index.html
 ├── .gitignore
 └── README.md
 ```
 
 ---
 
-## 🎯 Main Sections
+## 🎨 Design Highlights
 
-### 1. **Hero Section**
-Professional introduction with call-to-action buttons and profile visual.
+### Color Palette
+- **Primary Purple:** `#8B45FF`
+- **Accent Gold:** `#FFC107`
+- **Cyan:** `#00BCD4`
+- **Dark Navy:** `#0f1419`
+- **Light Text:** `#e8e8e8`
 
-### 2. **About**
-Background summary and key profile highlights.
-
-### 3. **Skills**
-Visual skill cards with progress bars.
-
-### 4. **Services**
-Core service offerings across development and data.
-
-### 5. **Portfolio**
-Project cards with stack details and GitHub links.
-
-### 6. **Timeline**
-Learning and growth milestones.
-
-### 7. **Contact**
-Contact me by using the Email and Phone Number
+### Responsive Breakpoints
+- 📱 **Mobile:** < 768px
+- 📱 **Tablet:** 768px - 1024px
+- 💻 **Desktop:** 1024px+
 
 ---
 
-## 🚀 Getting Started
+## 📱 Responsive Design
 
-### Installation
+✅ **Fully Responsive** across all devices:
+- Mobile phones (320px+)
+- Tablets (768px+)
+- Desktops (1024px+)
 
-1. **Clone the repository**
-  ```bash
-  git clone https://github.com/your-username/your-repo.git
-  cd react-nest-portfolio/frontend
-  ```
-
-2. **Install dependencies**
-  ```bash
-  npm install
-  ```
-
-3. **Create environment file**
-  ```bash
-  cp .env.example .env
-  ```
-
-4. **Run development server**
-  ```bash
-  npm run dev
-  ```
+Features:
+- Adaptive layouts and font sizes
+- Touch-friendly navigation
+- Hamburger menu on mobile
+- Optimized images and assets
 
 ---
 
-## 💻 Build
+## 📧 Contact & Social
 
-```bash
-npm run build
-```
+Let's connect and collaborate!
 
-
----
-
-## 🚀 Deployment
-
-Recommended: **Vercel**
-
-1. Import repository in Vercel
-2. Set project root to `frontend`
-3. Add `VITE_EMAILJS_*` environment variables
-4. Deploy
+- **📧 Email:** [alamnoushad081@gmail.com](mailto:alamnoushad081@gmail.com)
+- **💼 LinkedIn:** [Noushad Alam](https://www.linkedin.com/in/noushad-alam-a959b3252)
+- **🐙 GitHub:** [@noshu12](https://github.com/noshu12)
+- **📍 Location:** Karachi, Pakistan
 
 ---
 
-## 🔐 Security
+## 📜 License
 
-- Real environment files are ignored from git
-- Only `.env.example` is committed
-- No backend secrets are required in this architecture
+This project is open source and available under the **MIT License** - see the LICENSE file for details.
 
 ---
 
-## 📞 Contact
+## 🙏 Acknowledgments
 
-- 📧 Email: alamnoushad081@gmail.com
-- 📧 Email: noushadalam7979@gmail.com
-- 📱 Phone: +92 314 8005977
-- 🔗 GitHub: https://github.com/noshu12
-- 💼 LinkedIn: https://www.linkedin.com/in/noushad-alam-a959b3252
+- React and Vite communities for excellent frameworks
+- Google Fonts for typography
+- Font Awesome for icons
+- Vercel for seamless deployment
 
 ---
 
-**Last Updated:** April 17, 2026  
+<div align="center">
+
+**Made with ❤️ by Noushad Alam**
+
+⭐ If you find this portfolio useful, consider giving it a star!
+
+</div>
+
 **Version:** 2.0.0
