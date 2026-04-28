@@ -1,0 +1,151 @@
+.about-section {
+  min-height: 100vh;
+  width: 100%;
+  padding: 6rem 2rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.about-text {
+  animation: slideInLeft 0.8s ease;
+}
+
+.about-description {
+  color: #aaa;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.skills-container {
+  margin: 2.5rem 0;
+}
+
+.skills-container h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  margin-bottom: 1.2rem;
+  color: #e8e8e8;
+}
+
+.skills-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: rgba(139, 69, 255, 0.1);
+  border: 1px solid rgba(139, 69, 255, 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover {
+  background: rgba(255, 193, 7, 0.15);
+  border-color: rgba(255, 193, 7, 0.3);
+  transform: translateY(-4px);
+}
+
+.skill-name {
+  color: #e8e8e8;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.skill-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(139, 69, 255, 0.2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #8B45FF, #FFC107);
+  border-radius: 3px;
+  transition: width 0.6s ease;
+}
+
+.skill-level {
+  color: #FFC107;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.about-visual {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: slideInRight 0.8s ease;
+}
+
+.about-card {
+  padding: 2rem;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-content {
+  text-align: center;
+}
+
+.card-emoji {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.about-card h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #e8e8e8;
+}
+
+.about-card p {
+  color: #aaa;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-visual {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .about-card {
+    flex: 1;
+    min-width: 200px;
+  }
+}
