@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
 
-export default function Navbar({ scrollY }) {
+export default function Navbar({ scrollY, isDark, toggleTheme }) {
   const [isOpen, setIsOpen] = useState(false)
   const [isSticky, setIsSticky] = useState(false)
 
@@ -28,7 +28,11 @@ export default function Navbar({ scrollY }) {
           <li><Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
         </ul>
 
-        <Link to="/contact" className="cta-btn">Let's Talk</Link>
+        <div className="nav-right">
+          <button className="theme-toggle" onClick={toggleTheme} title="Toggle dark/light theme">
+            <span className="theme-icon">{isDark ? '☀️' : '🌙'}</span>
+          </button>
+        </div>
 
         <div 
           className={`hamburger ${isOpen ? 'active' : ''}`}

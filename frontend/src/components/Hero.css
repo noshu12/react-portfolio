@@ -28,7 +28,7 @@
 .accent-line {
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #8B45FF, #FFC107);
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
   margin-bottom: 2rem;
   border-radius: 2px;
 }
@@ -39,13 +39,13 @@
   font-weight: 800;
   line-height: 1.5;
   margin-bottom: 1.5rem;
-  color: #e8e8e8;
+  color: var(--text-primary);
   letter-spacing: 0px;
   word-spacing: 0.1em;
 }
 
 .hero-highlight {
-  background: linear-gradient(135deg, #8B45FF, #00BCD4, #FFC107);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary), var(--accent-secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -59,7 +59,7 @@
 
 .hero-subtitle {
   font-size: 1.2rem;
-  color: #aaa;
+  color: var(--text-secondary);
   line-height: 1.8;
   margin-bottom: 2rem;
   max-width: 500px;
@@ -75,7 +75,7 @@
 }
 
 .current-role {
-  color: #FFC107;
+  color: var(--accent-secondary);
   font-weight: 600;
   animation: fadeInOut 3s infinite;
 }
@@ -90,6 +90,10 @@
   display: flex;
   gap: 1.5rem;
   margin-bottom: 3rem;
+}
+
+.btn-primary, .btn-secondary {
+  border: none;
 }
 
 .hero-visual {

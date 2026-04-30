@@ -11,6 +11,10 @@ import './App.css'
 export default function App() {
   const [scrollY, setScrollY] = useState(0)
   const [filterByService, setFilterByService] = useState(null)
+  const [isDark, setIsDark] = useState(() => {
+    const saved = localStorage.getItem('theme')
+    return saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
+  })
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,8 +25,18 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const theme = isDark ? 'dark' : 'light'
+    document.documentElement.setAttribute('data-theme', theme)
+    localStorage.setItem('theme', theme)
+  }, [isDark])
+
   const handleServiceClick = (serviceName) => {
     setFilterByService(serviceName)
+  }
+
+  const toggleTheme = () => {
+    setIsDark(!isDark)
   }
 
   return (
@@ -33,7 +47,7 @@ export default function App() {
         <div className="blob blob-2"></div>
         <div className="blob blob-3"></div>
         
-        <Navbar scrollY={scrollY} />
+        <Navbar scrollY={scrollY} isDark={isDark} toggleTheme={toggleTheme} />
         
         <Routes>
           <Route path="/" element={<HomePage />} />

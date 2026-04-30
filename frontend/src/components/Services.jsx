@@ -38,13 +38,25 @@ const services = [
     description: 'Create responsive, modern websites with HTML, CSS, and JavaScript for clean, fast, and fully functional user experiences.',
     color: '#FFB347'
   },
+  {
+    icon: '⚡',
+    title: 'Real-time Data Streaming',
+    description: 'Build high-performance real-time data streaming systems using Apache Kafka, AWS Kinesis, and message queuing for event-driven architectures.',
+    color: '#FF6B6B'
+  },
+  {
+    icon: '🏢',
+    title: 'Data Warehousing',
+    description: 'Design and implement cloud-based data warehouses with Snowflake, optimized for analytics, reporting, and complex data modeling.',
+    color: '#4ECDC4'
+  },
 ]
 
 export default function Services({ onServiceClick }) {
   const navigate = useNavigate()
 
   const handleServiceClick = (serviceName) => {
-    navigate(`/portfolio?service=${encodeURIComponent(serviceName)}`)
+    navigate(`/project?service=${encodeURIComponent(serviceName)}`)
   }
 
   return (

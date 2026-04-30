@@ -4,16 +4,43 @@
   box-sizing: border-box;
 }
 
+:root {
+  --bg-primary: #0f1419;
+  --bg-secondary: #1a2332;
+  --text-primary: #e8e8e8;
+  --text-secondary: #a8a8a8;
+  --text-muted: #707070;
+  --accent-primary: #8B45FF;
+  --accent-secondary: #FFC107;
+  --accent-tertiary: #00BCD4;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 193, 7, 0.2);
+}
+
+html[data-theme="light"] {
+  --bg-primary: #f0ebe5;
+  --bg-secondary: #faf7f2;
+  --text-primary: #2c2416;
+  --text-secondary: #5a5047;
+  --text-muted: #8b7f78;
+  --accent-primary: #6d4cb5;
+  --accent-secondary: #d97706;
+  --accent-tertiary: #0891b2;
+  --card-bg: rgba(109, 76, 181, 0.08);
+  --card-border: rgba(217, 119, 6, 0.12);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #0f1419;
-  color: #e8e8e8;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::-webkit-scrollbar {
@@ -21,26 +48,26 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0f1419;
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #8B45FF, #FFC107);
+  background: linear-gradient(180deg, var(--accent-primary), var(--accent-secondary));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #FFC107, #8B45FF);
+  background: linear-gradient(180deg, var(--accent-secondary), var(--accent-primary));
 }
 
 ::selection {
-  background: #FFC107;
-  color: #0f1419;
+  background: var(--accent-secondary);
+  color: var(--bg-primary);
 }
 
 ::-moz-selection {
-  background: #FFC107;
-  color: #0f1419;
+  background: var(--accent-secondary);
+  color: var(--bg-primary);
 }
 
 .section {
@@ -62,7 +89,7 @@ body {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  background: linear-gradient(135deg, #FFC107, #8B45FF, #00BCD4);
+  background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary), var(--accent-tertiary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -71,16 +98,16 @@ body {
 
 .section-subtitle {
   font-size: 1.1rem;
-  color: #aaa;
+  color: var(--text-secondary);
   font-weight: 300;
   max-width: 600px;
   line-height: 1.8;
 }
 
 .premium-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 193, 7, 0.1);
+  border: 1px solid var(--card-border);
   border-radius: 20px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -88,6 +115,12 @@ body {
 
 .premium-card:hover {
   transform: translateY(-10px);
+  border-color: var(--accent-secondary);
+  box-shadow: 0 20px 60px rgba(124, 58, 237, 0.15),
+              0 0 40px rgba(249, 115, 22, 0.1);
+}
+
+html[data-theme="dark"] .premium-card:hover {
   border-color: rgba(255, 193, 7, 0.3);
   box-shadow: 0 20px 60px rgba(139, 69, 255, 0.15),
               0 0 40px rgba(255, 193, 7, 0.1);
@@ -95,7 +128,7 @@ body {
 
 .btn-primary {
   padding: 0.95rem 2.5rem;
-  background: linear-gradient(135deg, #8B45FF, #00BCD4);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
   color: white;
   border: none;
   border-radius: 50px;
@@ -114,7 +147,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, #00BCD4, #8B45FF);
+  background: linear-gradient(135deg, var(--accent-tertiary), var(--accent-primary));
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: -1;
@@ -128,8 +161,8 @@ body {
 .btn-secondary {
   padding: 0.95rem 2.5rem;
   background: transparent;
-  color: #FFC107;
-  border: 2px solid #FFC107;
+  color: var(--accent-secondary);
+  border: 2px solid var(--accent-secondary);
   border-radius: 50px;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
@@ -142,6 +175,11 @@ body {
 .btn-secondary:hover {
   background: rgba(255, 193, 7, 0.1);
   box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+}
+
+html[data-theme="light"] .btn-secondary:hover {
+  background: rgba(255, 152, 0, 0.1);
+  box-shadow: 0 0 20px rgba(255, 152, 0, 0.3);
 }
 
 @media (max-width: 768px) {

@@ -1,8 +1,10 @@
 import { useEffect, useState, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import './Hero.css'
 
 export default function Hero() {
   const [textIndex, setTextIndex] = useState(0)
+  const navigate = useNavigate()
   const roles = ['Full Stack Developer', 'AI/ML Engineer', 'Data Engineer', 'Tech Innovator']
 
   useEffect(() => {
@@ -31,7 +33,7 @@ export default function Hero() {
           </div>
 
           <div className="hero-buttons">
-            <a href="#portfolio" className="btn-primary">View My Work</a>
+            <button onClick={() => navigate('/contact')} className="btn-primary">Let's Talk</button>
             <a href="/NOUSHAD-ALAM-CV-Resume_main.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary">
               <i className="fas fa-download"></i> Download CV
             </a>

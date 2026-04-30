@@ -53,6 +53,56 @@ const projects = [
     link: 'https://github.com/noshu12/MINI-HACKTHON',
     services: ['Data Engineering', 'Python Development', 'Cloud & DevOps']
   },
+  {
+    id: 6,
+    title: 'Kafka Real-Time Stock Processing',
+    category: 'Data',
+    type: 'Data Engineering',
+    description: 'Real-time data streaming project using Apache Kafka and Docker. Learn from basics to advanced Kafka concepts, manual setup, and stock market data processing workflows.',
+    tags: ['Kafka', 'Docker', 'AWS', 'Stock Market'],
+    link: 'https://github.com/noshu12/kafka101.git',
+    services: ['Data Engineering', 'Cloud & DevOps', 'Python Development', 'Real-time Data Streaming']
+  },
+  {
+    id: 7,
+    title: 'Weather ETL Pipeline with Apache Airflow',
+    category: 'Data',
+    type: 'Data Engineering',
+    description: 'Comprehensive hands-on classroom project demonstrating a complete Extract → Transform → Load pipeline using Apache Airflow 2.8 running in Docker. No API keys required.',
+    tags: ['Apache Airflow', 'Docker', 'ETL', 'Data Pipeline'],
+    link: 'https://github.com/noshu12/weather-airflow-docker-etl.git',
+    services: ['Data Engineering', 'Cloud & DevOps', 'Python Development']
+  },
+  {
+    id: 8,
+    title: 'Snowflake SCD Implementation',
+    category: 'Data',
+    type: 'Data Engineering',
+    description: 'Build and implement Slowly Changing Dimensions in Snowflake using Type 1 and Type 2 methods. Leverage Snowflake Streams and Tasks for efficient data warehousing.',
+    tags: ['Snowflake', 'SQL', 'Data Warehouse', 'SCD'],
+    link: 'https://github.com/noshu12/scd-data-warehousing-with-snowflake.git',
+    services: ['SQL & Databases', 'Data Engineering', 'Cloud & DevOps', 'Data Warehousing']
+  },
+  {
+    id: 9,
+    title: 'E-commerce Data Pipeline on AWS',
+    category: 'Data',
+    type: 'Data Engineering',
+    description: 'Enterprise-scale e-commerce data pipeline built with Snowflake, managed Apache Airflow, and AWS Kinesis. Complete data orchestration and streaming solution.',
+    tags: ['Snowflake', 'Apache Airflow', 'AWS', 'Kinesis', 'ETL'],
+    link: 'https://github.com/noshu12/ecommerce-datapipeline.git',
+    services: ['Data Engineering', 'Cloud & DevOps', 'SQL & Databases', 'Data Warehousing', 'Real-time Data Streaming']
+  },
+  {
+    id: 10,
+    title: 'AI Voice Assistant',
+    category: 'AI',
+    type: 'AI & Automation',
+    description: 'Object-Oriented Programming project featuring a virtual assistant powered by AI and voice recognition. Automate tasks with natural language processing and voice commands.',
+    tags: ['Python', 'AI', 'Voice Recognition', 'OOP'],
+    link: 'https://github.com/noshu12/VA-Virtual-Assistant.git',
+    services: ['Artificial Intelligence', 'Python Development']
+  },
 ]
 
 export default function Portfolio({ filterByService }) {
@@ -67,7 +117,7 @@ export default function Portfolio({ filterByService }) {
     }
   }, [filterByService])
 
-  const categories = ['All', 'Web', 'Data', 'Scraping']
+  const categories = ['All', 'Web', 'Data', 'Scraping', 'AI']
   const filtered = filter === 'All' 
     ? projects 
     : projects.filter(p => {
