@@ -178,7 +178,8 @@ html[data-theme="light"] .theme-toggle:hover {
 .hamburger span {
   width: 25px;
   height: 3px;
-    background: var(--text-primary);
+  background: var(--text-primary);
+}
 
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(8px, 8px);
@@ -205,12 +206,7 @@ html[data-theme="light"] .theme-toggle:hover {
 
   .nav-menu {
     position: fixed;
-   
-
-  html[data-theme="light"] .nav-menu {
-    background-color: rgba(245, 245, 245, 0.98);
-    border-bottom: 1px solid rgba(255, 152, 0, 0.1);
-  } left: -100%;
+    left: -100%;
     top: 70px;
     flex-direction: column;
     background-color: rgba(15, 20, 25, 0.98);
@@ -220,6 +216,11 @@ html[data-theme="light"] .theme-toggle:hover {
     gap: 1rem;
     padding: 2rem 0;
     border-bottom: 1px solid rgba(255, 193, 7, 0.1);
+  }
+
+  html[data-theme="light"] .nav-menu {
+    background-color: rgba(245, 245, 245, 0.98);
+    border-bottom: 1px solid rgba(255, 152, 0, 0.1);
   }
 
   .nav-menu.active {
