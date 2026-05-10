@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './Contact.css'
+import emailjs from '@emailjs/browser'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -7,7 +8,16 @@ export default function Contact() {
     email: '',
     message: ''
   })
-  const [submitted, setSubmitted] = useState(false)
+
+  const [loading, setLoading] = useState(false)
+  const [success, setSuccess] = useState('')
+  const [error, setError] = useState('')
+
+  const formRef = useRef(null)
+
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
   const handleChange = (e) => {
     setFormData({
@@ -16,13 +26,62 @@ export default function Contact() {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubmitted(true)
-    setTimeout(() => {
-      setSubmitted(false)
+
+    if (!SERVICE_ID || !TEMPLATE_ID || !PUBLIC_KEY) {
+      setError('Email service is not configured. Check environment variables.')
+      return
+    }
+
+    setLoading(true)
+    setSuccess('')
+    setError('')
+
+    try {
+      // initialize (safe to call multiple times)
+      try { emailjs.init(PUBLIC_KEY) } catch (initErr) { /* ignore init errors */ }
+
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        from_name: formData.name,
+        from_email: formData.email,
+        user_name: formData.name,
+        user_email: formData.email,
+        reply_to: formData.email,
+        message: formData.message,
+        text: formData.message
+      }
+
+      const result = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
+      // result.status 200 on success
+      setSuccess('Message sent successfully — thank you!')
       setFormData({ name: '', email: '', message: '' })
-    }, 3000)
+      if (formRef.current) formRef.current.reset()
+    } catch (err) {
+      console.error('EmailJS error:', err)
+      let detail = ''
+      try {
+        if (err && typeof err.text === 'function') {
+          // try to read response body
+          detail = await err.text()
+        } else {
+          detail = err && (err.message || JSON.stringify(err))
+        }
+      } catch (readErr) {
+        detail = err && (err.message || JSON.stringify(err))
+      }
+      setError('Failed to send message. ' + detail)
+    } finally {
+      setLoading(false)
+      // auto-hide messages after a short delay
+      setTimeout(() => {
+        setSuccess('')
+        setError('')
+      }, 5000)
+    }
   }
 
   return (
@@ -59,9 +118,12 @@ export default function Contact() {
           </div>
         </div>
 
-        <form className="contact-form premium-card" onSubmit={handleSubmit}>
+        <form ref={formRef} className="contact-form premium-card" onSubmit={handleSubmit}>
           <h3>Send Me a Message</h3>
-          
+
+          {success && <div className="toast success">{success}</div>}
+          {error && <div className="toast error">{error}</div>}
+
           <input
             type="text"
             name="name"
@@ -71,6 +133,10 @@ export default function Contact() {
             onChange={handleChange}
           />
 
+          {/* Common template field names for EmailJS; keep in sync with visible fields */}
+          <input type="hidden" name="from_name" value={formData.name} />
+          <input type="hidden" name="user_name" value={formData.name} />
+
           <input
             type="email"
             name="email"
@@ -79,6 +145,9 @@ export default function Contact() {
             value={formData.email}
             onChange={handleChange}
           />
+          <input type="hidden" name="from_email" value={formData.email} />
+          <input type="hidden" name="user_email" value={formData.email} />
+          <input type="hidden" name="reply_to" value={formData.email} />
 
           <textarea
             name="message"
@@ -88,13 +157,14 @@ export default function Contact() {
             value={formData.message}
             onChange={handleChange}
           ></textarea>
+          <input type="hidden" name="text" value={formData.message} />
 
-          <button 
-            type="submit" 
+          <button
+            type="submit"
             className="submit-btn"
-            disabled={submitted}
+            disabled={loading}
           >
-            {submitted ? '✓ Message Sent!' : 'Send Message'}
+            {loading ? 'Sending...' : 'Send Message'}
           </button>
         </form>
       </div>
