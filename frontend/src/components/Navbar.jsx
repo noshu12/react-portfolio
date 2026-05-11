@@ -22,9 +22,9 @@ export default function Navbar({ scrollY, isDark, toggleTheme }) {
 
         <ul className={`nav-menu ${isOpen ? 'active' : ''}`}>
           <li><Link to="/" onClick={() => setIsOpen(false)}>Home</Link></li>
+          <li><Link to="/about" onClick={() => setIsOpen(false)}>About</Link></li>
           <li><Link to="/services" onClick={() => setIsOpen(false)}>Services</Link></li>
           <li><Link to="/project" onClick={() => setIsOpen(false)}>Project</Link></li>
-          <li><Link to="/about" onClick={() => setIsOpen(false)}>About</Link></li>
           <li><Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
         </ul>
 
