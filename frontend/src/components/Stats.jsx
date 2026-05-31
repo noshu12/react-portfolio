@@ -1,15 +1,14 @@
 import { useEffect, useRef, useState } from 'react'
 import './Stats.css'
 
-const stats = [
-  { number: '10+', label: 'Projects Completed', icon: '📊' },
-  { number: '100%', label: 'Quality Focus', icon: '⭐' },
-  { number: '5+', label: 'Data Projects', icon: '📈' },
-  { number: '2+', label: 'Years Experience', icon: '🚀' },
-]
-
 export default function Stats() {
-  const [counts, setCounts] = useState([0, 0, 0, 0])
+  const [stats, setStats] = useState([
+    { id: 1, icon: '🎯', label: 'Projects Completed', target: 11, current: 0, suffix: '+' },
+    { id: 2, icon: '💻', label: 'Active Platforms', target: 3, current: 0, suffix: '' },
+    { id: 3, icon: '⚡', label: 'Lines of Code', target: 10, current: 0, suffix: 'K+' },
+    { id: 4, icon: '⭐', label: 'Client Satisfaction', target: 100, current: 0, suffix: '%' }
+  ])
+
   const ref = useRef(null)
   const [hasAnimated, setHasAnimated] = useState(false)
 
@@ -18,29 +17,7 @@ export default function Stats() {
       (entries) => {
         if (entries[0].isIntersecting && !hasAnimated) {
           setHasAnimated(true)
-          stats.forEach((stat, index) => {
-            const target = parseInt(stat.number)
-            let current = 0
-            const increment = target / 30
-
-            const interval = setInterval(() => {
-              current += increment
-              if (current >= target) {
-                setCounts((prev) => {
-                  const newCounts = [...prev]
-                  newCounts[index] = target
-                  return newCounts
-                })
-                clearInterval(interval)
-              } else {
-                setCounts((prev) => {
-                  const newCounts = [...prev]
-                  newCounts[index] = Math.floor(current)
-                  return newCounts
-                })
-              }
-            }, 30)
-          })
+          startCountUp()
         }
       },
       { threshold: 0.5 }
@@ -50,18 +27,43 @@ export default function Stats() {
     return () => observer.disconnect()
   }, [hasAnimated])
 
+  const startCountUp = () => {
+    const duration = 2000
+    const startTime = Date.now()
+
+    const animate = () => {
+      const elapsed = Date.now() - startTime
+      const progress = Math.min(elapsed / duration, 1)
+
+      setStats(prevStats =>
+        prevStats.map(stat => ({
+          ...stat,
+          current: Math.floor(stat.target * progress)
+        }))
+      )
+
+      if (progress < 1) {
+        requestAnimationFrame(animate)
+      }
+    }
+
+    requestAnimationFrame(animate)
+  }
+
   return (
     <section className="stats-section" ref={ref}>
-      <div className="stats-grid">
-        {stats.map((stat, index) => (
-          <div key={index} className="stat-card premium-card">
-            <div className="stat-icon">{stat.icon}</div>
-            <div className="stat-number">
-              {counts[index]}{stat.number.replace(/\d+/g, '')}
+      <div className="stats-container">
+        <div className="stats-grid">
+          {stats.map((stat) => (
+            <div key={stat.id} className="stat-card">
+              <div className="stat-icon">{stat.icon}</div>
+              <div className="stat-number">
+                {stat.current}{stat.suffix}
+              </div>
+              <div className="stat-label">{stat.label}</div>
             </div>
-            <div className="stat-label">{stat.label}</div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )

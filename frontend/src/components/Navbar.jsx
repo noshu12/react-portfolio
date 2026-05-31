@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import ReactGA from 'react-ga4'
 import './Navbar.css'
 
 export default function Navbar({ scrollY, isDark, toggleTheme }) {
@@ -36,6 +37,13 @@ export default function Navbar({ scrollY, isDark, toggleTheme }) {
             rel="noopener noreferrer" 
             className="hire-btn"
             title="Hire me on Fiverr"
+            onClick={() => {
+              ReactGA.event({
+                category: 'Engagement',
+                action: 'Click',
+                label: 'Fiverr Button'
+              })
+            }}
           >
             Hire on Fiverr
           </a>
@@ -45,6 +53,13 @@ export default function Navbar({ scrollY, isDark, toggleTheme }) {
             rel="noopener noreferrer" 
             className="freelancer-btn"
             title="Hire me on Freelancer"
+            onClick={() => {
+              ReactGA.event({
+                category: 'Engagement',
+                action: 'Click',
+                label: 'Freelancer Button'
+              })
+            }}
           >
             Hire on Freelancer
           </a>

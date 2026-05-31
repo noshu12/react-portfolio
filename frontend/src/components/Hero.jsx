@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import ReactGA from 'react-ga4'
 import './Hero.css'
 
 export default function Hero() {
@@ -38,7 +39,13 @@ export default function Hero() {
 
           <div className="hero-buttons">
             <button onClick={() => navigate('/contact')} className="btn-primary">Let's Talk</button>
-            <a href="/NOUSHAD-ALAM-CV-Resume_main.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary">
+            <a href="/NOUSHAD-ALAM-CV-Resume_main.pdf" target="_blank" rel="noopener noreferrer" className="btn-secondary" onClick={() => {
+              ReactGA.event({
+                category: 'Engagement',
+                action: 'Download',
+                label: 'CV Downloaded from Hero'
+              })
+            }}>
               <i className="fas fa-download"></i> Download CV
             </a>
           </div>

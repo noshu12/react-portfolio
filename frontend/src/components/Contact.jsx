@@ -1,4 +1,5 @@
 import { useState, useRef } from 'react'
+import ReactGA from 'react-ga4'
 import './Contact.css'
 import emailjs from '@emailjs/browser'
 
@@ -107,6 +108,11 @@ export default function Contact() {
 
       const result = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
       // result.status 200 on success
+      ReactGA.event({
+        category: 'Engagement',
+        action: 'Form Submit',
+        label: 'Contact Form Submitted'
+      })
       setSuccess('Message sent successfully — thank you!')
       setFormData({ name: '', email: '', message: '' })
       setErrors({})

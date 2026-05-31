@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import ReactGA from 'react-ga4'
 import './Project.css'
 
 const projects = [
@@ -156,7 +157,14 @@ export default function Portfolio({ filterByService }) {
           <button
             key={cat}
             className={`filter-btn ${filter === cat ? 'active' : ''}`}
-            onClick={() => setFilter(cat)}
+            onClick={() => {
+              setFilter(cat)
+              ReactGA.event({
+                category: 'Engagement',
+                action: 'Filter',
+                label: `Projects Filtered by ${cat}`
+              })
+            }}
           >
             {cat}
           </button>
@@ -186,12 +194,24 @@ export default function Portfolio({ filterByService }) {
               {hoveredIndex === index && (
                 <div className="portfolio-overlay">
                   {project.liveLink && (
-                    <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="view-btn live-demo-btn">
+                    <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="view-btn live-demo-btn" onClick={() => {
+                      ReactGA.event({
+                        category: 'Engagement',
+                        action: 'Click',
+                        label: `Live Demo Clicked - ${project.title}`
+                      })
+                    }}>
                       🌐 Live Demo
                     </a>
                   )}
                   {project.link && (
-                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="view-btn code-btn">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="view-btn code-btn" onClick={() => {
+                      ReactGA.event({
+                        category: 'Engagement',
+                        action: 'Click',
+                        label: `View Code Clicked - ${project.title}`
+                      })
+                    }}>
                       💻 View Code
                     </a>
                   )}
