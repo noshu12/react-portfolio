@@ -4,6 +4,7 @@ import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import ProjectPage from './pages/ProjectPage'
+import TestimonialsPage from './pages/TestimonialsPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import './App.css'
@@ -53,6 +54,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/services" element={<ServicesPage onServiceClick={handleServiceClick} />} />
           <Route path="/project" element={<ProjectPage filterByService={filterByService} />} />
+          <Route path="/testimonials" element={<TestimonialsPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
         </Routes>

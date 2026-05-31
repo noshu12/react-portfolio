@@ -105,7 +105,9 @@ html[data-theme="light"] .navbar.sticky {
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .theme-toggle {
@@ -147,6 +149,74 @@ html[data-theme="light"] .theme-toggle:hover {
 
 .theme-toggle:hover .theme-icon {
   transform: rotate(20deg);
+}
+
+.hire-btn {
+  padding: 0.65rem 1.3rem;
+  background: linear-gradient(135deg, #8B45FF, #00BCD4);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(139, 69, 255, 0.25);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.hire-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(139, 69, 255, 0.35);
+}
+
+.hire-btn:active {
+  transform: translateY(0);
+}
+
+html[data-theme="light"] .hire-btn {
+  box-shadow: 0 8px 20px rgba(255, 152, 0, 0.25);
+}
+
+html[data-theme="light"] .hire-btn:hover {
+  box-shadow: 0 12px 30px rgba(255, 152, 0, 0.35);
+}
+
+.freelancer-btn {
+  padding: 0.65rem 1.3rem;
+  background: linear-gradient(135deg, #8B45FF, #00BCD4);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(139, 69, 255, 0.25);
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.freelancer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(139, 69, 255, 0.35);
+}
+
+.freelancer-btn:active {
+  transform: translateY(0);
+}
+
+html[data-theme="light"] .freelancer-btn {
+  box-shadow: 0 8px 20px rgba(255, 152, 0, 0.25);
+}
+
+html[data-theme="light"] .freelancer-btn:hover {
+  box-shadow: 0 12px 30px rgba(255, 152, 0, 0.35);
 }
 
 .cta-btn {
@@ -199,6 +269,14 @@ html[data-theme="light"] .theme-toggle:hover {
   }
 }
 
+@media (max-width: 1024px) {
+  .hire-btn,
+  .freelancer-btn {
+    padding: 0.6rem 1.1rem;
+    font-size: 0.82rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
@@ -229,6 +307,25 @@ html[data-theme="light"] .theme-toggle:hover {
 
   .nav-right {
     order: 3;
+    gap: 0.6rem;
+  }
+
+  .hire-btn,
+  .freelancer-btn {
+    padding: 0.55rem 0.9rem;
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-right {
+    gap: 0.4rem;
+  }
+
+  .hire-btn,
+  .freelancer-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.7rem;
   }
 }
 

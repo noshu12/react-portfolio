@@ -18,6 +18,10 @@ export default function Hero() {
     <section id="hero" className="hero">
       <div className="hero-content">
         <div className="hero-text">
+          <div className="available-badge">
+            <span className="badge-dot">🟢</span>
+            Available for Freelance Work
+          </div>
           <div className="accent-line"></div>
           <h1 className="hero-title">
             Hi, I'm <br />

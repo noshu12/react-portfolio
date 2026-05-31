@@ -10,6 +10,7 @@ const projects = [
     description: 'Personal portfolio website built to present my profile, skills, and featured work in a clean way.',
     tags: ['HTML', 'CSS', 'Responsive UI'],
     link: 'https://github.com/noshu12/My-Portfolio',
+    liveLink: 'https://noushadxalam.dev',
     services: ['Web Development'],
     featured: true
   },
@@ -103,6 +104,18 @@ const projects = [
     link: 'https://github.com/noshu12/VA-Virtual-Assistant.git',
     services: ['Artificial Intelligence', 'Python Development']
   },
+  {
+    id: 11,
+    title: 'Preloved Kicks — Thrift Sneaker E-Commerce',
+    category: 'Web',
+    type: 'Full Stack E-Commerce',
+    description: 'Full-stack e-commerce web application for a thrifted sneaker shop in Karachi, Pakistan. Built with React + Vite, Firebase Firestore, and Tailwind CSS with streetwear-inspired dark UI. Features real-time product management, shopping cart, WhatsApp integration, and advanced filtering.',
+    tags: ['React', 'Firebase', 'Tailwind CSS', 'E-commerce', 'Full Stack'],
+    link: 'https://github.com/noshu12/preloved-kicks-website',
+    liveLink: 'https://preloved-kicks-website.vercel.app',
+    services: ['Web Development', 'Full Stack Development'],
+    featured: true
+  },
 ]
 
 export default function Portfolio({ filterByService }) {
@@ -172,9 +185,16 @@ export default function Portfolio({ filterByService }) {
 
               {hoveredIndex === index && (
                 <div className="portfolio-overlay">
-                  <a href={project.link} target="_blank" rel="noopener noreferrer" className="view-btn">
-                    View on GitHub
-                  </a>
+                  {project.liveLink && (
+                    <a href={project.liveLink} target="_blank" rel="noopener noreferrer" className="view-btn live-demo-btn">
+                      🌐 Live Demo
+                    </a>
+                  )}
+                  {project.link && (
+                    <a href={project.link} target="_blank" rel="noopener noreferrer" className="view-btn code-btn">
+                      💻 View Code
+                    </a>
+                  )}
                 </div>
               )}
             </div>

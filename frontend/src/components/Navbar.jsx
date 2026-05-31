@@ -25,10 +25,29 @@ export default function Navbar({ scrollY, isDark, toggleTheme }) {
           <li><Link to="/about" onClick={() => setIsOpen(false)}>About</Link></li>
           <li><Link to="/services" onClick={() => setIsOpen(false)}>Services</Link></li>
           <li><Link to="/project" onClick={() => setIsOpen(false)}>Project</Link></li>
+          <li><Link to="/testimonials" onClick={() => setIsOpen(false)}>Testimonials</Link></li>
           <li><Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
         </ul>
 
         <div className="nav-right">
+          <a 
+            href="https://www.fiverr.com/s/yvkwdQq" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hire-btn"
+            title="Hire me on Fiverr"
+          >
+            Hire on Fiverr
+          </a>
+          <a 
+            href="https://www.freelancer.com/u/noushadaalam?sb=t" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="freelancer-btn"
+            title="Hire me on Freelancer"
+          >
+            Hire on Freelancer
+          </a>
           <button className="theme-toggle" onClick={toggleTheme} title="Toggle dark/light theme">
             <span className="theme-icon">{isDark ? '☀️' : '🌙'}</span>
           </button>

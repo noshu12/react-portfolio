@@ -20,7 +20,14 @@ export default function About() {
   return (
     <section id="about" className="about-section">
       <div className="about-content">
-        <div className="about-text">
+        <div className="about-photo-section">
+          <div className="about-photo">
+            <img src="/my_picture.png" alt="Professional Photo" className="profile-image" />
+          </div>
+        </div>
+
+        <div className="about-right">
+          <div className="about-text">
           <h2 className="section-title">About Me</h2>
           <p className="section-subtitle">
             Python AI & Data Engineer with expertise in building intelligent systems and data pipelines
@@ -78,6 +85,7 @@ export default function About() {
               <p>Building efficient data pipelines and ETL processes</p>
             </div>
           </div>
+        </div>
         </div>
       </div>
     </section>

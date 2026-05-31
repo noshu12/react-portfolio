@@ -196,6 +196,82 @@ html[data-theme="light"] .social-icon:hover {
   box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
 }
 
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  transition: all 0.3s ease;
+}
+
+.input-error {
+  border-color: #ff4757 !important;
+  background: rgba(255, 71, 87, 0.05) !important;
+}
+
+.input-error:focus {
+  box-shadow: 0 0 20px rgba(255, 71, 87, 0.3) !important;
+  border-color: #ff4757 !important;
+}
+
+.error-message {
+  color: #ff4757;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-top: -0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+html[data-theme="light"] .error-message {
+  color: #ff3838;
+}
+
+.toast {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  animation: slideIn 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.toast.success {
+  background: rgba(46, 204, 113, 0.15);
+  border: 1px solid rgba(46, 204, 113, 0.3);
+  color: #2ecc71;
+}
+
+html[data-theme="light"] .toast.success {
+  background: rgba(39, 174, 96, 0.1);
+  color: #27ae60;
+}
+
+.toast.error {
+  background: rgba(255, 71, 87, 0.15);
+  border: 1px solid rgba(255, 71, 87, 0.3);
+  color: #ff4757;
+}
+
+html[data-theme="light"] .toast.error {
+  background: rgba(255, 107, 107, 0.1);
+  color: #ff3838;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 1024px) {
   .contact-container {
     grid-template-columns: 1fr;

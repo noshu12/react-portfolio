@@ -11,16 +11,81 @@
 
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   max-width: 1300px;
   margin: 0 auto;
 }
 
-.about-text {
+.about-photo-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
   animation: slideInLeft 0.8s ease;
+}
+
+.about-photo {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(139, 69, 255, 0.2), rgba(0, 188, 212, 0.2));
+  border: 2px solid var(--accent-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 20px 60px rgba(139, 69, 255, 0.3);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+html[data-theme="dark"] .about-photo {
+  border-color: #8B45FF;
+  box-shadow: 0 20px 60px rgba(139, 69, 255, 0.4);
+}
+
+html[data-theme="light"] .about-photo {
+  border-color: #8B45FF;
+  background: linear-gradient(135deg, rgba(139, 69, 255, 0.15), rgba(0, 188, 212, 0.15));
+  box-shadow: 0 20px 60px rgba(139, 69, 255, 0.25);
+}
+
+.about-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 25px 70px rgba(139, 69, 255, 0.5);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.photo-placeholder {
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.photo-text {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  text-align: center;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.about-right {
+  display: grid;
+  grid-template-rows: auto auto;
+  gap: 2rem;
+  animation: slideInRight 0.8s ease;
 }
 
 .about-description {
@@ -145,14 +210,61 @@ html[data-theme="dark"] .skill-bar {
   line-height: 1.6;
 }
 
+/* Tablet (1024px and below) */
 @media (max-width: 1024px) {
   .about-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
+  .about-photo {
+    width: 200px;
+    height: 200px;
+  }
+
+  .photo-placeholder {
+    font-size: 3rem;
+  }
+
+  .about-photo-section {
+    justify-content: center;
+  }
 }
 
+/* Mobile (768px and below) */
 @media (max-width: 768px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .about-photo-section {
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-photo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .photo-placeholder {
+    font-size: 2.5rem;
+  }
+
+  .photo-text {
+    font-size: 0.85rem;
+  }
+
+  .about-text {
+    animation: slideInUp 0.8s ease;
+  }
+
+  .about-right {
+    animation: slideInUp 0.8s ease;
+  }
+
   .about-visual {
     flex-direction: row;
     flex-wrap: wrap;
@@ -161,5 +273,63 @@ html[data-theme="dark"] .skill-bar {
   .about-card {
     flex: 1;
     min-width: 200px;
+  }
+}
+
+/* Small mobile (480px and below) */
+@media (max-width: 480px) {
+  .about-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .about-content {
+    gap: 1.5rem;
+  }
+
+  .about-photo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .photo-placeholder {
+    font-size: 2rem;
+  }
+
+  .photo-text {
+    font-size: 0.8rem;
+  }
+
+  .about-description {
+    font-size: 0.95rem;
+  }
+
+  .skills-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skill-item {
+    padding: 0.8rem;
+  }
+
+  .about-visual {
+    gap: 1rem;
+  }
+
+  .about-card {
+    padding: 1.5rem;
+    min-height: 120px;
+  }
+
+  .card-emoji {
+    font-size: 2rem;
+  }
+
+  .about-card h4 {
+    font-size: 1rem;
+  }
+
+  .about-card p {
+    font-size: 0.8rem;
   }
 }
