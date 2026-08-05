@@ -17,21 +17,9 @@
   --card-border: rgba(255, 193, 7, 0.2);
 }
 
-html[data-theme="light"] {
-  --bg-primary: #f0ebe5;
-  --bg-secondary: #faf7f2;
-  --text-primary: #2c2416;
-  --text-secondary: #5a5047;
-  --text-muted: #8b7f78;
-  --accent-primary: #6d4cb5;
-  --accent-secondary: #d97706;
-  --accent-tertiary: #0891b2;
-  --card-bg: rgba(109, 76, 181, 0.08);
-  --card-border: rgba(217, 119, 6, 0.12);
-}
-
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -175,11 +163,6 @@ html[data-theme="dark"] .premium-card:hover {
 .btn-secondary:hover {
   background: rgba(255, 193, 7, 0.1);
   box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
-}
-
-html[data-theme="light"] .btn-secondary:hover {
-  background: rgba(255, 152, 0, 0.1);
-  box-shadow: 0 0 20px rgba(255, 152, 0, 0.3);
 }
 
 @media (max-width: 768px) {

@@ -143,7 +143,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="contact-section">
-      <div className="contact-header">
+      <div className="contact-header" data-aos="fade-up">
         <h2 className="section-title">Get In Touch</h2>
         <p className="section-subtitle">
           Connect with me for collaborations, freelance work, or just to say hello
@@ -152,14 +152,14 @@ export default function Contact() {
 
       <div className="contact-container">
         <div className="contact-info">
-          <div className="info-card premium-card">
+          <div className="info-card premium-card" data-aos="fade-up" data-aos-delay="100">
             <div className="info-icon">📧</div>
             <h3>Email</h3>
             <p>alamnoushad081@gmail.com</p>
             <a href="mailto:alamnoushad081@gmail.com" className="info-link">Send Email →</a>
           </div>
 
-          <div className="social-card premium-card">
+          <div className="social-card premium-card" data-aos="fade-up" data-aos-delay="200">
             <h3>Follow Me</h3>
             <div className="social-links">
               <a href="mailto:alamnoushad081@gmail.com" className="social-icon" title="Email">
@@ -175,7 +175,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <form ref={formRef} className="contact-form premium-card" onSubmit={handleSubmit}>
+        <form ref={formRef} className="contact-form premium-card" onSubmit={handleSubmit} data-aos="fade-up" data-aos-delay="300">
           <h3>Send Me a Message</h3>
 
           {success && <div className="toast success">✅ {success}</div>}
@@ -227,9 +227,10 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="submit-btn"
+            className={`submit-btn ${loading ? 'loading' : ''}`}
             disabled={loading}
           >
+            {loading && <span className="spinner"></span>}
             {loading ? 'Sending...' : 'Send Message'}
           </button>
         </form>

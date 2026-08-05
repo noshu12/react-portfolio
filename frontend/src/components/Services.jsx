@@ -61,7 +61,7 @@ export default function Services({ onServiceClick }) {
 
   return (
     <section id="services" className="services-section">
-      <div className="services-header">
+      <div className="services-header" data-aos="fade-up">
         <h2 className="section-title">What I Build</h2>
         <p className="section-subtitle">
           Practical services focused on automation, data, and modern web solutions
@@ -83,6 +83,8 @@ export default function Services({ onServiceClick }) {
                 handleServiceClick(service.title)
               }
             }}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
           >
             <div className="service-icon">{service.icon}</div>
             <h3 className="service-title">{service.title}</h3>

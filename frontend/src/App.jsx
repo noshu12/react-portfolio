@@ -1,11 +1,14 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import ReactGA from 'react-ga4'
 import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import ProjectPage from './pages/ProjectPage'
 import TestimonialsPage from './pages/TestimonialsPage'
+import FAQPage from './pages/FAQPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import './App.css'
@@ -22,14 +25,27 @@ function AppContent() {
   const location = useLocation()
   const [scrollY, setScrollY] = useState(0)
   const [filterByService, setFilterByService] = useState(null)
-  const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem('theme')
-    return saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches
-  })
 
   // Initialize GA4 on mount
   useEffect(() => {
     ReactGA.initialize('G-NX7CQKHL6K')
+  }, [])
+
+  // Initialize AOS (Animate On Scroll)
+  useEffect(() => {
+    AOS.init({
+      duration: 700,
+      easing: 'ease-in-out',
+      once: false,
+      offset: 100,
+      delay: 0,
+      disable: false
+    })
+    
+    // Refresh AOS on route change
+    return () => {
+      AOS.refresh()
+    }
   }, [])
 
   // Track page views
@@ -39,6 +55,9 @@ function AppContent() {
       page: location.pathname,
       title: document.title
     })
+    
+    // Refresh AOS on route change
+    AOS.refresh()
   }, [location.pathname])
 
   useEffect(() => {
@@ -50,18 +69,13 @@ function AppContent() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Set dark theme as default (permanently)
   useEffect(() => {
-    const theme = isDark ? 'dark' : 'light'
-    document.documentElement.setAttribute('data-theme', theme)
-    localStorage.setItem('theme', theme)
-  }, [isDark])
+    document.documentElement.setAttribute('data-theme', 'dark')
+  }, [])
 
   const handleServiceClick = (serviceName) => {
     setFilterByService(serviceName)
-  }
-
-  const toggleTheme = () => {
-    setIsDark(!isDark)
   }
 
   return (
@@ -71,13 +85,14 @@ function AppContent() {
       <div className="blob blob-2"></div>
       <div className="blob blob-3"></div>
       
-      <Navbar scrollY={scrollY} isDark={isDark} toggleTheme={toggleTheme} />
+      <Navbar scrollY={scrollY} />
       
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage onServiceClick={handleServiceClick} />} />
         <Route path="/project" element={<ProjectPage filterByService={filterByService} />} />
         <Route path="/testimonials" element={<TestimonialsPage />} />
+        <Route path="/faq" element={<FAQPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>

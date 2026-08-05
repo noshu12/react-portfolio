@@ -33,62 +33,6 @@
   border-radius: 2px;
 }
 
-.available-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.6rem 1.2rem;
-  background: rgba(0, 255, 65, 0.08);
-  border: 1px solid rgba(0, 255, 65, 0.3);
-  border-radius: 50px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #00FF41;
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 0 20px rgba(0, 255, 65, 0.15);
-  animation: badgePulse 2s ease-in-out infinite;
-}
-
-@keyframes badgePulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.15);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(0, 255, 65, 0.25);
-  }
-}
-
-.badge-dot {
-  font-size: 0.8rem;
-  animation: dotPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes dotPulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
-html[data-theme="light"] .available-badge {
-  background: rgba(255, 152, 0, 0.08);
-  border-color: rgba(255, 152, 0, 0.3);
-  color: #FF9500;
-  box-shadow: 0 0 20px rgba(255, 152, 0, 0.15);
-}
-
-html[data-theme="light"] @keyframes badgePulse {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(255, 152, 0, 0.15);
-  }
-  50% {
-    box-shadow: 0 0 30px rgba(255, 152, 0, 0.25);
-  }
-}
-
 .hero-title {
   font-family: 'Playfair Display', serif;
   font-size: 4.5rem;
@@ -254,6 +198,7 @@ html[data-theme="light"] @keyframes badgePulse {
 @media (max-width: 768px) {
   .hero {
     padding: 5rem 1rem 2rem;
+    min-height: auto;
   }
 
   .hero-title {
@@ -266,6 +211,10 @@ html[data-theme="light"] @keyframes badgePulse {
 
   .btn-primary, .btn-secondary {
     width: 100%;
+  }
+
+  .hero-visual {
+    display: none;
   }
 
   .code-block {

@@ -20,13 +20,13 @@ export default function About() {
   return (
     <section id="about" className="about-section">
       <div className="about-content">
-        <div className="about-photo-section">
+        <div className="about-photo-section" data-aos="fade-up">
           <div className="about-photo">
             <img src="/my_picture.png" alt="Professional Photo" className="profile-image" />
           </div>
         </div>
 
-        <div className="about-right">
+        <div className="about-right" data-aos="fade-up" data-aos-delay="100">
           <div className="about-text">
           <h2 className="section-title">About Me</h2>
           <p className="section-subtitle">
@@ -45,7 +45,7 @@ export default function About() {
             <h3>Core Skills</h3>
             <div className="skills-list">
               {skills.map((skill, index) => (
-                <div key={index} className="skill-item">
+                <div key={index} className="skill-item" data-aos="fade-up" data-aos-delay={200 + index * 50}>
                   <span className="skill-name">{skill.name}</span>
                   <div className="skill-bar">
                     <div className="skill-progress" style={{ width: `${skill.level}%` }}></div>
@@ -56,12 +56,12 @@ export default function About() {
             </div>
           </div>
 
-          <button className="btn-primary" onClick={handleDownloadCV}>
+          <button className="btn-primary" onClick={handleDownloadCV} data-aos="fade-up" data-aos-delay="250">
             <i className="fas fa-download"></i> Download CV
           </button>
         </div>
 
-        <div className="about-visual">
+        <div className="about-visual" data-aos="fade-up" data-aos-delay="200">
           <div className="about-card premium-card">
             <div className="card-content">
               <span className="card-emoji">🐍</span>

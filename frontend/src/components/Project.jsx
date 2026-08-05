@@ -145,14 +145,14 @@ export default function Portfolio({ filterByService }) {
 
   return (
     <section id="portfolio" className="portfolio-section">
-      <div className="portfolio-header">
+      <div className="portfolio-header" data-aos="fade-up">
         <h2 className="section-title">Project Vault</h2>
         <p className="section-subtitle">
           A curated mix of web builds, scraping experiments, and data workflow systems
         </p>
       </div>
 
-      <div className="filter-buttons">
+      <div className="filter-buttons" data-aos="fade-up" data-aos-delay="100">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -178,6 +178,8 @@ export default function Portfolio({ filterByService }) {
             className={`portfolio-item ${project.featured ? 'featured' : ''}`}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
           >
             <div className="portfolio-card premium-card">
               <div className="portfolio-content">

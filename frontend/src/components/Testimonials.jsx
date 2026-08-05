@@ -45,7 +45,7 @@ function StarRating({ rating }) {
 export default function Testimonials() {
   return (
     <section id="testimonials" className="testimonials-section">
-      <div className="testimonials-header">
+      <div className="testimonials-header" data-aos="fade-up">
         <h2 className="section-title">What Clients Say</h2>
         <p className="section-subtitle">
           Feedback and testimonials from clients I've worked with
@@ -53,8 +53,8 @@ export default function Testimonials() {
       </div>
 
       <div className="testimonials-grid">
-        {testimonials.map((testimonial) => (
-          <div key={testimonial.id} className="testimonial-card premium-card">
+        {testimonials.map((testimonial, index) => (
+          <div key={testimonial.id} className="testimonial-card premium-card" data-aos="fade-up" data-aos-delay={index * 100}>
             <div className="testimonial-quote">
               <span className="quote-icon">"</span>
               <p className="quote-text">{testimonial.quote}</p>
@@ -75,7 +75,7 @@ export default function Testimonials() {
         ))}
       </div>
 
-      <div className="testimonials-footer">
+      <div className="testimonials-footer" data-aos="fade-up" data-aos-delay="300">
         <p className="footer-text">✨ More testimonials coming as I complete more projects!</p>
       </div>
     </section>

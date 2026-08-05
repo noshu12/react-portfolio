@@ -51,11 +51,11 @@ export default function Stats() {
   }
 
   return (
-    <section className="stats-section" ref={ref}>
+    <section className="stats-section" ref={ref} data-aos="fade-up">
       <div className="stats-container">
         <div className="stats-grid">
-          {stats.map((stat) => (
-            <div key={stat.id} className="stat-card">
+          {stats.map((stat, index) => (
+            <div key={stat.id} className="stat-card" data-aos="fade-up" data-aos-delay={index * 100}>
               <div className="stat-icon">{stat.icon}</div>
               <div className="stat-number">
                 {stat.current}{stat.suffix}
