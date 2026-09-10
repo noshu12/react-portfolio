@@ -41,14 +41,34 @@ export default function Portfolio() {
         const projectsData = []
 
         querySnapshot.forEach((doc) => {
+          const data = doc.data()
+
+          // Normalize `tags` — Firestore docs may store it as a string
+          let tags = data.tags
+          if (typeof tags === 'string') {
+            tags = tags.split(',').map(t => t.trim()).filter(Boolean)
+          } else if (!Array.isArray(tags)) {
+            tags = []
+          }
+
+          // Same safety for `services`
+          let services = data.services
+          if (typeof services === 'string') {
+            services = services.split(',').map(s => s.trim()).filter(Boolean)
+          } else if (!Array.isArray(services)) {
+            services = []
+          }
+
           projectsData.push({
             id: doc.id,
-            ...doc.data()
+            ...data,
+            tags,
+            services
           })
         })
 
         setProjects(projectsData)
-        console.log(`Successfully loaded ${projectsData.length} projects from Firestore`)
+                        console.log(`Successfully loaded ${projectsData.length} projects from Firestore`)
 
         ReactGA.event({
           category: 'Content',
@@ -159,7 +179,7 @@ export default function Portfolio() {
                 <h3 className="portfolio-title">{project.title}</h3>
                 <p className="portfolio-description">{project.description}</p>
 
-                {project.tags && project.tags.length > 0 && (
+                {Array.isArray(project.tags) && project.tags.length > 0 && (
                   <div className="portfolio-tags">
                     {project.tags.map((tag) => (
                       <span key={tag} className="tag">{tag}</span>
