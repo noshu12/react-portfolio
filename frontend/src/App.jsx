@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
+﻿import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
@@ -7,8 +7,6 @@ import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
 import ProjectPage from './pages/ProjectPage'
-import TestimonialsPage from './pages/TestimonialsPage'
-import FAQPage from './pages/FAQPage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
 import './App.css'
@@ -24,7 +22,6 @@ export default function App() {
 function AppContent() {
   const location = useLocation()
   const [scrollY, setScrollY] = useState(0)
-  const [filterByService, setFilterByService] = useState(null)
 
   // Initialize GA4 on mount
   useEffect(() => {
@@ -69,14 +66,10 @@ function AppContent() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Set dark theme as default (permanently)
+  // Set light theme as default
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', 'dark')
+    document.documentElement.setAttribute('data-theme', 'light')
   }, [])
-
-  const handleServiceClick = (serviceName) => {
-    setFilterByService(serviceName)
-  }
 
   return (
     <div className="app">
@@ -84,23 +77,23 @@ function AppContent() {
       <div className="blob blob-1"></div>
       <div className="blob blob-2"></div>
       <div className="blob blob-3"></div>
-      
+
       <Navbar scrollY={scrollY} />
-      
+
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/services" element={<ServicesPage onServiceClick={handleServiceClick} />} />
-        <Route path="/project" element={<ProjectPage filterByService={filterByService} />} />
-        <Route path="/testimonials" element={<TestimonialsPage />} />
-        <Route path="/faq" element={<FAQPage />} />
+        <Route path="/services" element={<ServicesPage />} />
+        <Route path="/project" element={<ProjectPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
 
       <footer className="footer">
-        <p>© 2024 Noushad Alam. All rights reserved.</p>
+        <p>Â© 2024 Noushad Alam. All rights reserved.</p>
         <div className="footer-divider"></div>
       </footer>
     </div>
   )
 }
+
+

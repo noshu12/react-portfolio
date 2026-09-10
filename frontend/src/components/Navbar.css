@@ -5,16 +5,9 @@
   padding: 1rem 2rem;
   z-index: 1000;
   transition: all 0.3s ease;
-  background: rgba(15, 20, 25, 0);
-  backdrop-filter: blur(0);
-  border-bottom: 1px solid rgba(255, 193, 7, 0);
-}
-
-.navbar.sticky {
-  background: rgba(15, 20, 25, 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 193, 7, 0.1);
-  box-shadow: 0 4px 20px rgba(139, 69, 255, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-light);
 }
 
 .nav-container {
@@ -32,12 +25,6 @@
   flex-shrink: 0;
 }
 
-.logo-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
@@ -47,48 +34,8 @@
   gap: 0.5rem;
 }
 
-.available-badge-navbar {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.8rem;
-  background: rgba(0, 255, 65, 0.08);
-  border: 1px solid rgba(0, 255, 65, 0.3);
-  border-radius: 50px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: #00FF41;
-  font-family: 'Poppins', sans-serif;
-  box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
-  animation: badgePulse 2s ease-in-out infinite;
-  white-space: nowrap;
-}
-
-@keyframes badgePulse {
-  0%, 100% {
-    box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
-  }
-}
-
-.available-badge-navbar .badge-dot {
-  font-size: 0.7rem;
-  animation: dotPulse 1.5s ease-in-out infinite;
-}
-
-@keyframes dotPulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.6;
-  }
-}
-
 .logo-gradient {
-  background: linear-gradient(135deg, #8B45FF, #FFC107);
+  background: linear-gradient(135deg, #c8a882, #a8b5a3);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -97,7 +44,7 @@
 .logo-dot {
   width: 8px;
   height: 8px;
-  background: #FFC107;
+  background: #a8b5a3;
   border-radius: 50%;
   animation: pulse 2s infinite;
 }
@@ -110,7 +57,7 @@
 .nav-menu {
   display: flex;
   list-style: none;
-  gap: 3rem;
+  gap: 2rem;
   flex: 1;
   justify-content: center;
   margin: 0 2rem;
@@ -132,114 +79,16 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(90deg, #c8a882, #a8b5a3);
   transition: width 0.3s ease;
 }
 
 .nav-menu a:hover {
-  color: var(--accent-secondary);
+  color: #a8b5a3;
 }
 
 .nav-menu a:hover::after {
   width: 100%;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  flex-shrink: 0;
-}
-
-.hire-dropdown {
-  position: relative;
-}
-
-.hire-btn {
-  padding: 0.65rem 1.3rem;
-  background: linear-gradient(135deg, #8B45FF, #00BCD4);
-  color: white;
-  border: none;
-  border-radius: 25px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  font-size: 0.88rem;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(139, 69, 255, 0.25);
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.hire-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(139, 69, 255, 0.35);
-}
-
-.hire-btn:active {
-  transform: translateY(0);
-}
-
-.hire-dropdown-menu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background: rgba(15, 20, 25, 0.98);
-  border: 1px solid rgba(255, 193, 7, 0.2);
-  border-radius: 12px;
-  margin-top: 0.5rem;
-  overflow: hidden;
-  box-shadow: 0 8px 32px rgba(139, 69, 255, 0.25);
-  backdrop-filter: blur(10px);
-  min-width: 160px;
-  z-index: 1001;
-}
-
-.dropdown-item {
-  display: block;
-  padding: 0.75rem 1.2rem;
-  color: var(--text-primary);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid rgba(255, 193, 7, 0.1);
-}
-
-.dropdown-item:last-child {
-  border-bottom: none;
-}
-
-.dropdown-item:hover {
-  background: rgba(139, 69, 255, 0.15);
-  color: #00BCD4;
-  padding-left: 1.5rem;
-}
-
-.freelancer-btn {
-  display: none;
-}
-
-.cta-btn {
-  padding: 0.8rem 1.8rem;
-  background: linear-gradient(135deg, #8B45FF, #00BCD4);
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 25px rgba(139, 69, 255, 0.3);
-  text-decoration: none;
-}
-
-.cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 35px rgba(139, 69, 255, 0.4);
 }
 
 .hamburger {
@@ -247,7 +96,6 @@
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  flex-shrink: 0;
 }
 
 .hamburger span {
@@ -272,11 +120,6 @@
   .nav-menu {
     gap: 2rem;
   }
-
-  .hire-btn {
-    padding: 0.6rem 1.1rem;
-    font-size: 0.82rem;
-  }
 }
 
 @media (max-width: 768px) {
@@ -298,41 +141,17 @@
     left: -100%;
     top: 60px;
     flex-direction: column;
-    background-color: rgba(15, 20, 25, 0.98);
+    background-color: var(--card-bg);
     width: 100%;
     text-align: center;
     transition: 0.3s;
     gap: 1rem;
     padding: 2rem 0;
-    border-bottom: 1px solid rgba(255, 193, 7, 0.1);
+    border-bottom: 1px solid var(--border-light);
   }
 
   .nav-menu.active {
     left: 0;
-  }
-
-  .nav-right {
-    order: 2;
-    gap: 0.6rem;
-  }
-
-  .hire-btn {
-    padding: 0.55rem 0.9rem;
-    font-size: 0.75rem;
-  }
-
-  .hire-dropdown-menu {
-    min-width: 140px;
-  }
-
-  .dropdown-item {
-    padding: 0.65rem 1rem;
-    font-size: 0.8rem;
-  }
-
-  .available-badge-navbar {
-    font-size: 0.65rem;
-    padding: 0.3rem 0.7rem;
   }
 }
 
@@ -341,33 +160,8 @@
     font-size: 1.2rem;
   }
 
-  .available-badge-navbar {
-    font-size: 0.6rem;
-    padding: 0.25rem 0.6rem;
-    gap: 0.3rem;
-  }
-
   .nav-menu {
     gap: 0.8rem;
     padding: 1.5rem 0;
   }
-
-  .nav-right {
-    gap: 0.4rem;
-  }
-
-  .hire-btn {
-    padding: 0.5rem 0.8rem;
-    font-size: 0.7rem;
-  }
-
-  .hire-dropdown-menu {
-    min-width: 120px;
-  }
-
-  .dropdown-item {
-    padding: 0.6rem 0.8rem;
-    font-size: 0.75rem;
-  }
 }
-

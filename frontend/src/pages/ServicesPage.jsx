@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async'
 import Services from '../components/Services'
 
-export default function ServicesPage({ onServiceClick }) {
+export default function ServicesPage() {
   return (
     <>
       <Helmet>
@@ -12,7 +12,7 @@ export default function ServicesPage({ onServiceClick }) {
         <meta property="og:description" content="Professional services including Python development, data engineering, web scraping, SQL databases, and AI solutions." />
         <meta property="og:type" content="website" />
       </Helmet>
-      <Services onServiceClick={onServiceClick} />
+      <Services />
     </>
   )
 }

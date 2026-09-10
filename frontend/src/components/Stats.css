@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, rgba(139, 69, 255, 0.05) 0%, rgba(0, 188, 212, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(200, 168, 130, 0.05) 0%, rgba(212, 165, 160, 0.05) 100%);
 }
 
 .stats-container {
@@ -39,7 +39,7 @@
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.25);
   transform: translateY(-5px);
-  box-shadow: 0 8px 32px rgba(139, 69, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(200, 168, 130, 0.15);
 }
 
 .stat-card::before {
@@ -49,7 +49,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(139, 69, 255, 0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(200, 168, 130, 0.2), transparent);
   transition: left 0.5s ease;
 }
 
@@ -58,14 +58,14 @@
 }
 
 html[data-theme="light"] .stat-card {
-  background: rgba(139, 69, 255, 0.08);
-  border: 1px solid rgba(139, 69, 255, 0.15);
+  background: rgba(200, 168, 130, 0.08);
+  border: 1px solid rgba(200, 168, 130, 0.15);
 }
 
 html[data-theme="light"] .stat-card:hover {
-  background: rgba(139, 69, 255, 0.12);
-  border: 1px solid rgba(139, 69, 255, 0.25);
-  box-shadow: 0 8px 32px rgba(139, 69, 255, 0.2);
+  background: rgba(200, 168, 130, 0.12);
+  border: 1px solid rgba(200, 168, 130, 0.25);
+  box-shadow: 0 8px 32px rgba(200, 168, 130, 0.2);
 }
 
 .stat-icon {
@@ -79,7 +79,7 @@ html[data-theme="light"] .stat-card:hover {
   font-family: 'Playfair Display', serif;
   font-size: 2.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #8B45FF, #00BCD4);
+  background: linear-gradient(135deg, #c8a882, #d4a5a0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

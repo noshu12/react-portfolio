@@ -6,53 +6,53 @@ const services = [
     icon: '🐍',
     title: 'Python Development',
     description: 'Build scalable applications and automation scripts with clean, efficient Python code optimized for real-world performance.',
-    color: '#8B45FF'
+    color: '#c8a882'
   },
   {
     icon: '🗄️',
     title: 'SQL & Databases',
     description: 'Design robust databases and write optimized queries for fast, reliable data management and integrity.',
-    color: '#00BCD4'
+    color: '#d4a5a0'
   },
   {
     icon: '🤖',
     title: 'Artificial Intelligence',
     description: 'Develop intelligent AI-powered systems for predictive analytics, automation, and smart decision-making solutions.',
-    color: '#FFC107'
+    color: '#a8b5a3'
   },
   {
     icon: '📊',
     title: 'Data Engineering',
     description: 'Build efficient data pipelines and ETL processes to transform raw data into actionable insights.',
-    color: '#FF1493'
+    color: '#d4a5a0'
   },
   {
     icon: '🐳',
     title: 'Cloud & DevOps',
     description: 'Deploy containerized applications with Docker and automate workflows using Apache Airflow for production-ready systems.',
-    color: '#00FF88'
+    color: '#a8b5a3'
   },
   {
     icon: '🌐',
     title: 'Web Development',
     description: 'Create responsive, modern websites with HTML, CSS, and JavaScript for clean, fast, and fully functional user experiences.',
-    color: '#FFB347'
+    color: '#c8a882'
   },
   {
     icon: '⚡',
     title: 'Real-time Data Streaming',
     description: 'Build high-performance real-time data streaming systems using Apache Kafka, AWS Kinesis, and message queuing for event-driven architectures.',
-    color: '#FF6B6B'
+    color: '#d4a5a0'
   },
   {
     icon: '🏢',
     title: 'Data Warehousing',
     description: 'Design and implement cloud-based data warehouses with Snowflake, optimized for analytics, reporting, and complex data modeling.',
-    color: '#4ECDC4'
+    color: '#a8b5a3'
   },
 ]
 
-export default function Services({ onServiceClick }) {
+export default function Services() {
   const navigate = useNavigate()
 
   const handleServiceClick = (serviceName) => {

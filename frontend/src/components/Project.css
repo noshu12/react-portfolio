@@ -83,7 +83,7 @@
 .portfolio-image {
   width: 100%;
   height: 250px;
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(6, 182, 212, 0.1));
+  background: linear-gradient(135deg, rgba(200, 168, 130, 0.1), rgba(212, 165, 160, 0.1));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,8 +91,8 @@
   overflow: hidden;
 }
 
-html[data-theme="dark"] .portfolio-image {
-  background: linear-gradient(135deg, rgba(139, 69, 255, 0.1), rgba(0, 188, 212, 0.1));
+html[data-theme="light"] .portfolio-image {
+  background: linear-gradient(135deg, rgba(200, 168, 130, 0.1), rgba(212, 165, 160, 0.1));
 }
 
 .project-emoji {
@@ -148,16 +148,16 @@ html[data-theme="dark"] .portfolio-image {
 .tag {
   display: inline-block;
   padding: 0.4rem 0.8rem;
-  background: rgba(124, 58, 237, 0.15);
-  border: 1px solid rgba(124, 58, 237, 0.3);
+  background: rgba(200, 168, 130, 0.15);
+  border: 1px solid rgba(200, 168, 130, 0.3);
   border-radius: 6px;
   font-size: 0.75rem;
   color: #8d68ff;
 }
 
-html[data-theme="dark"] .tag {
-  background: rgba(139, 69, 255, 0.15);
-  border-color: rgba(139, 69, 255, 0.3);
+html[data-theme="light"] .tag {
+  background: rgba(200, 168, 130, 0.15);
+  border-color: rgba(200, 168, 130, 0.3);
   color: #b0a5ff;
 }
 
@@ -197,11 +197,11 @@ html[data-theme="light"] .portfolio-overlay {
 
 .view-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+  box-shadow: 0 10px 30px rgba(200, 168, 130, 0.3);
 }
 
-html[data-theme="dark"] .view-btn:hover {
-  box-shadow: 0 10px 30px rgba(139, 69, 255, 0.3);
+html[data-theme="light"] .view-btn:hover {
+  box-shadow: 0 10px 30px rgba(200, 168, 130, 0.3);
 }
 
 .portfolio-link {

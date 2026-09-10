@@ -7,7 +7,7 @@
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)
 ![React](https://img.shields.io/badge/React-19.2.4-61DAFB?style=flat-square&logo=react)
 ![Vite](https://img.shields.io/badge/Vite-8.0.4-646CFF?style=flat-square&logo=vite)
-![React Router](https://img.shields.io/badge/React_Router-6.0-F44250?style=flat-square)
+![React Router](https://img.shields.io/badge/React_Router-7-F44250?style=flat-square)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
 
 [Live Demo](#-live-demo) • [Features](#-features) • [Tech Stack](#-technologies) • [Getting Started](#-quick-start) • [Contact](#-contact-me)
@@ -20,12 +20,12 @@
 
 This is a **production-ready, fully responsive portfolio website** designed to showcase a passionate AI and Data Engineer's work. It features:
 
-- 🎯 **Multi-page routing** with seamless navigation (Home, Services, Portfolio, About, Contact)
-- 🎨 **Glassmorphism design** with smooth animations and gradient effects
+- 🎯 **Multi-page routing** with seamless navigation (Home, Services, Project, About, Contact)
+- 🎨 **Soft muted design** with smooth animations, gradient effects, and glassmorphism
 - ⚡ **Optimized performance** with Vite's lightning-fast build system
 - 📱 **Fully responsive** across all devices (mobile, tablet, desktop)
-- 🔗 **5 verified projects** with live GitHub links
-- 🛠️ **6 core services** showcased with filterable portfolio
+- 🔗 **11 verified projects** with live GitHub links
+- 🛠️ **8 core services** showcased with service-to-project filtering
 - 💼 **Professional skills** with proficiency levels
 - 📧 **Direct contact options** via email and contact form
 
@@ -40,9 +40,9 @@ This is a **production-ready, fully responsive portfolio website** designed to s
 ## ✨ Key Features
 
 ### 🎭 Modern UI/UX
-- Glassmorphic design with backdrop blur effects
+- Soft muted design with backdrop blur effects
 - Smooth animations and floating blob effects
-- Gradient text animations
+- Gradient text animations with warm taupe, sage, and pink palette
 - Responsive mobile-first approach
 
 ### 🧭 Smart Navigation
@@ -66,6 +66,8 @@ This is a **production-ready, fully responsive portfolio website** designed to s
 - Data Engineering
 - Cloud & DevOps
 - Web Development
+- Real-time Data Streaming
+- Data Warehousing
 
 ### 💻 Skills Displayed
 - SQL (80%)
@@ -90,7 +92,7 @@ This is a **production-ready, fully responsive portfolio website** designed to s
 |----------|--------------|
 | **Frontend Framework** | React 19.2.4 |
 | **Build Tool** | Vite 8.0.4 |
-| **Routing** | React Router DOM v6 |
+| **Routing** | React Router DOM v7 |
 | **Styling** | CSS3 (Glassmorphism, Gradients, Animations) |
 | **Fonts** | Google Fonts (Poppins, Playfair Display) |
 | **Icons** | Font Awesome 6.4.0, Emoji |
@@ -102,34 +104,40 @@ This is a **production-ready, fully responsive portfolio website** designed to s
 ## 📂 Project Structure
 
 ```text
-react-nest-portfolio/
+react-portfolio/
 ├── frontend/
 │   ├── public/
 │   │   ├── favicon.svg
+│   │   ├── my_picture.png
 │   │   └── NOUSHAD-ALAM-CV-Resume_main.pdf
 │   ├── src/
 │   │   ├── components/
 │   │   │   ├── Navbar.jsx & Navbar.css
 │   │   │   ├── Hero.jsx & Hero.css
 │   │   │   ├── Services.jsx & Services.css
-│   │   │   ├── Portfolio.jsx & Portfolio.css
+│   │   │   ├── Project.jsx & Project.css
 │   │   │   ├── About.jsx & About.css
-│   │   │   ├── Contact.jsx & Contact.css
-│   │   │   └── Footer.jsx
+│   │   │   ├── Stats.jsx & Stats.css
+│   │   │   └── Contact.jsx & Contact.css
 │   │   ├── pages/
 │   │   │   ├── HomePage.jsx
 │   │   │   ├── ServicesPage.jsx
-│   │   │   ├── PortfolioPage.jsx
+│   │   │   ├── ProjectPage.jsx
 │   │   │   ├── AboutPage.jsx
 │   │   │   └── ContactPage.jsx
 │   │   ├── styles/
 │   │   │   └── global.css
 │   │   ├── App.jsx
 │   │   └── main.jsx
+│   ├── .env.example
+│   ├── .gitignore
+│   ├── eslint.config.js
+│   ├── index.html
 │   ├── package.json
 │   ├── vite.config.js
-│   └── index.html
+│   └── vercel.json
 ├── .gitignore
+├── package.json
 └── README.md
 ```
 
@@ -138,11 +146,14 @@ react-nest-portfolio/
 ## 🎨 Design Highlights
 
 ### Color Palette
-- **Primary Purple:** `#8B45FF`
-- **Accent Gold:** `#FFC107`
-- **Cyan:** `#00BCD4`
-- **Dark Navy:** `#0f1419`
-- **Light Text:** `#e8e8e8`
+- **Background:** `#f5f3f0` (Soft Beige)
+- **Text Primary:** `#2d2d2d` (Dark Gray)
+- **Text Secondary:** `#666666` (Muted Gray)
+- **Accent Taupe:** `#c8a882`
+- **Accent Sage:** `#a8b5a3`
+- **Accent Soft Pink:** `#d4a5a0`
+- **Card White:** `#ffffff`
+- **Border Light:** `#e8dcd0`
 
 ### Responsive Breakpoints
 - 📱 **Mobile:** < 768px
