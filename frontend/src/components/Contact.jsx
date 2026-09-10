@@ -17,9 +17,10 @@ export default function Contact() {
 
   const formRef = useRef(null)
 
-  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
-  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
-  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+  // EmailJS public credentials (safe to ship — they are public client keys by design)
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_cjxmpzh'
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_s0dkstt'
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'c8k0lc9XFhZCVPJtU'
 
   // Email validation regex
   const validateEmail = (email) => {
