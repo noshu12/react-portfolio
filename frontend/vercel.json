@@ -1,12 +1,12 @@
-{
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": "dist",
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
-}
+   {
+     "buildCommand": "npm install && npm run build",
+     "outputDirectory": "dist",
+     "cleanUrls": true,
+     "trailingSlash": false,
+     "rewrites": [
+       {
+         "source": "/(.*)",
+         "destination": "/index.html"
+       }
+     ]
+   }
