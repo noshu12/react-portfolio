@@ -1,4 +1,5 @@
 import './About.css'
+import { CV_PATH } from '../constants/siteConfig'
 
 export default function About() {
   const skills = [
@@ -14,7 +15,7 @@ export default function About() {
   ]
 
   const handleDownloadCV = () => {
-    window.open('/NOUSHAD-ALAM-CV-Resume_main.pdf', '_blank')
+    window.open(CV_PATH, '_blank')
   }
 
   return (

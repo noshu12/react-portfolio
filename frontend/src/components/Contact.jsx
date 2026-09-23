@@ -2,6 +2,7 @@ import { useState, useRef } from 'react'
 import ReactGA from 'react-ga4'
 import './Contact.css'
 import emailjs from '@emailjs/browser'
+import { GITHUB_URL, LINKEDIN_URL, MAILTO_LINK, EMAIL_ADDRESS } from '../constants/siteConfig'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -103,12 +104,10 @@ export default function Contact() {
         user_name: formData.name,
         user_email: formData.email,
         reply_to: formData.email,
-        message: formData.message,
         text: formData.message
       }
 
-      const result = await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
-      // result.status 200 on success
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams)
       ReactGA.event({
         category: 'Engagement',
         action: 'Form Submit',
@@ -156,20 +155,20 @@ export default function Contact() {
           <div className="info-card premium-card" data-aos="fade-up" data-aos-delay="30">
             <div className="info-icon">📧</div>
             <h3>Email</h3>
-            <p>alamnoushad081@gmail.com</p>
-            <a href="mailto:alamnoushad081@gmail.com" className="info-link">Send Email →</a>
+            <p>{EMAIL_ADDRESS}</p>
+            <a href={MAILTO_LINK} className="info-link">Send Email →</a>
           </div>
 
           <div className="social-card premium-card" data-aos="fade-up" data-aos-delay="60">
             <h3>Follow Me</h3>
             <div className="social-links">
-              <a href="mailto:alamnoushad081@gmail.com" className="social-icon" title="Email">
+              <a href={MAILTO_LINK} className="social-icon" title="Email">
                 ✉️
               </a>
-              <a href="https://www.linkedin.com/in/noushad-n081/" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn">
+              <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn">
                 in
               </a>
-              <a href="https://github.com/noshu12" target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub">
+              <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub">
                 ⚙️
               </a>
             </div>
@@ -194,10 +193,6 @@ export default function Contact() {
             {errors.name && <span className="error-message">{errors.name}</span>}
           </div>
 
-          {/* Common template field names for EmailJS; keep in sync with visible fields */}
-          <input type="hidden" name="from_name" value={formData.name} />
-          <input type="hidden" name="user_name" value={formData.name} />
-
           <div className="form-group">
             <input
               type="email"
@@ -209,9 +204,6 @@ export default function Contact() {
             />
             {errors.email && <span className="error-message">{errors.email}</span>}
           </div>
-          <input type="hidden" name="from_email" value={formData.email} />
-          <input type="hidden" name="user_email" value={formData.email} />
-          <input type="hidden" name="reply_to" value={formData.email} />
 
           <div className="form-group">
             <textarea
@@ -224,7 +216,6 @@ export default function Contact() {
             ></textarea>
             {errors.message && <span className="error-message">{errors.message}</span>}
           </div>
-          <input type="hidden" name="text" value={formData.message} />
 
           <button
             type="submit"

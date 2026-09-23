@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import ReactGA from 'react-ga4'
+import { GITHUB_URL, LINKEDIN_URL, MAILTO_LINK, CV_PATH, CV_FILE_NAME } from '../constants/siteConfig'
 import './Hero.css'
 
 const roles = [
@@ -37,8 +38,8 @@ export default function Hero() {
       label: 'Hero Section'
     })
     const link = document.createElement('a')
-    link.href = '/NOUSHAD-ALAM-CV-Resume_main.pdf'
-    link.download = 'Noushad_Alam_CV.pdf'
+    link.href = CV_PATH
+    link.download = CV_FILE_NAME
     link.click()
   }
 
@@ -81,9 +82,9 @@ export default function Hero() {
             <button className="btn-secondary" onClick={handleDownloadCV}>Download CV</button>
           </div>
           <div className="hero-socials">
-            <a href="https://github.com/noshu12" target="_blank" rel="noopener noreferrer" title="GitHub"><i className="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/noushad-n081/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i className="fab fa-linkedin"></i></a>
-            <a href="mailto:alamnoushad081@gmail.com" title="Email"><i className="fas fa-envelope"></i></a>
+            <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" title="GitHub"><i className="fab fa-github"></i></a>
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" title="LinkedIn"><i className="fab fa-linkedin"></i></a>
+            <a href={MAILTO_LINK} title="Email"><i className="fas fa-envelope"></i></a>
           </div>
         </div>
         <div className="hero-visual">

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 import ReactGA from 'react-ga4'
+import { GA_MEASUREMENT_ID } from './constants/siteConfig'
 import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
 import ServicesPage from './pages/ServicesPage'
@@ -25,7 +26,7 @@ function AppContent() {
 
   // Initialize GA4 on mount
   useEffect(() => {
-    ReactGA.initialize('G-NX7CQKHL6K')
+    ReactGA.initialize(GA_MEASUREMENT_ID)
   }, [])
 
   // Initialize AOS (Animate On Scroll)

@@ -68,7 +68,6 @@ export default function Portfolio() {
         })
 
         setProjects(projectsData)
-                        console.log(`Successfully loaded ${projectsData.length} projects from Firestore`)
 
         ReactGA.event({
           category: 'Content',

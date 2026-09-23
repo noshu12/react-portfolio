@@ -2,15 +2,8 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { createPortal } from 'react-dom'
 import UserIcon from './UserIcon'
+import { GITHUB_URL, LINKEDIN_URL, MAILTO_LINK, NAV_LINKS } from '../constants/siteConfig'
 import './Navbar.css'
-
-const links = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/services', label: 'Services' },
-  { to: '/project', label: 'Project' },
-  { to: '/contact', label: 'Contact' }
-]
 
 export default function Navbar({ scrollY }) {
   const [isOpen, setIsOpen] = useState(false)
@@ -79,7 +72,7 @@ export default function Navbar({ scrollY }) {
       </div>
 
       <ul className="mobile-nav-links">
-        {links.map((link) => (
+        {NAV_LINKS.map((link) => (
           <li key={link.to}>
             <Link to={link.to} onClick={closeMenu}>{link.label}</Link>
           </li>
@@ -89,9 +82,9 @@ export default function Navbar({ scrollY }) {
       <div className="mobile-drawer-foot">
         <Link to="/contact" className="mobile-drawer-cta" onClick={closeMenu}>Let's Talk</Link>
         <div className="mobile-drawer-socials">
-          <a href="https://github.com/noshu12" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i className="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/noushad-n081/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
-          <a href="mailto:alamnoushad081@gmail.com" aria-label="Email"><i className="fas fa-envelope"></i></a>
+          <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i className="fab fa-github"></i></a>
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
+          <a href={MAILTO_LINK} aria-label="Email"><i className="fas fa-envelope"></i></a>
         </div>
         <p className="mobile-drawer-note">Noushad Alam · AI &amp; Data Engineer</p>
       </div>
@@ -112,7 +105,7 @@ export default function Navbar({ scrollY }) {
           {/* CENTER SLOT — desktop nav links (replaced by the drawer below 768px) */}
           <nav className="nav-center" aria-label="Primary navigation">
             <ul className="nav-links">
-              {links.map((link) => (
+              {NAV_LINKS.map((link) => (
                 <li key={link.to}>
                   <Link to={link.to}>{link.label}</Link>
                 </li>
