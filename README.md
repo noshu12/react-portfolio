@@ -182,7 +182,7 @@ Features:
 Let's connect and collaborate!
 
 - **📧 Email:** [alamnoushad081@gmail.com](mailto:alamnoushad081@gmail.com)
-- **💼 LinkedIn:** [Noushad Alam](https://www.linkedin.com/in/noushad-alam-a959b3252)
+- **💼 LinkedIn:** [Noushad Alam](https://www.linkedin.com/in/noushad-n081/)
 - **🐙 GitHub:** [@noshu12](https://github.com/noshu12)
 - **📍 Location:** Karachi, Pakistan
 

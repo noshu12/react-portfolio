@@ -166,7 +166,7 @@ export default function Contact() {
               <a href="mailto:alamnoushad081@gmail.com" className="social-icon" title="Email">
                 ✉️
               </a>
-              <a href="https://www.linkedin.com/in/noushad-alam-a959b3252" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn">
+              <a href="https://www.linkedin.com/in/noushad-n081/" target="_blank" rel="noopener noreferrer" className="social-icon" title="LinkedIn">
                 in
               </a>
               <a href="https://github.com/noshu12" target="_blank" rel="noopener noreferrer" className="social-icon" title="GitHub">

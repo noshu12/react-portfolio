@@ -90,7 +90,7 @@ export default function Navbar({ scrollY }) {
         <Link to="/contact" className="mobile-drawer-cta" onClick={closeMenu}>Let's Talk</Link>
         <div className="mobile-drawer-socials">
           <a href="https://github.com/noshu12" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i className="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/noushad-alam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/noushad-n081/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i className="fab fa-linkedin"></i></a>
           <a href="mailto:alamnoushad081@gmail.com" aria-label="Email"><i className="fas fa-envelope"></i></a>
         </div>
         <p className="mobile-drawer-note">Noushad Alam · AI &amp; Data Engineer</p>
