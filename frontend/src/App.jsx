@@ -31,10 +31,10 @@ function AppContent() {
   // Initialize AOS (Animate On Scroll)
   useEffect(() => {
     AOS.init({
-      duration: 700,
-      easing: 'ease-in-out',
-      once: false,
-      offset: 100,
+      duration: 300,        /* fast reveal (0.3s) */
+      easing: 'ease-out',
+      once: true,           /* animate once, on first scroll into view */
+      offset: 120,          /* trigger early: reveal as soon as the element nears the viewport */
       delay: 0,
       disable: false
     })

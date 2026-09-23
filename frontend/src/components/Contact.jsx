@@ -153,14 +153,14 @@ export default function Contact() {
 
       <div className="contact-container">
         <div className="contact-info">
-          <div className="info-card premium-card" data-aos="fade-up" data-aos-delay="100">
+          <div className="info-card premium-card" data-aos="fade-up" data-aos-delay="30">
             <div className="info-icon">📧</div>
             <h3>Email</h3>
             <p>alamnoushad081@gmail.com</p>
             <a href="mailto:alamnoushad081@gmail.com" className="info-link">Send Email →</a>
           </div>
 
-          <div className="social-card premium-card" data-aos="fade-up" data-aos-delay="200">
+          <div className="social-card premium-card" data-aos="fade-up" data-aos-delay="60">
             <h3>Follow Me</h3>
             <div className="social-links">
               <a href="mailto:alamnoushad081@gmail.com" className="social-icon" title="Email">
@@ -176,7 +176,7 @@ export default function Contact() {
           </div>
         </div>
 
-        <form ref={formRef} className="contact-form premium-card" onSubmit={handleSubmit} data-aos="fade-up" data-aos-delay="300">
+        <form ref={formRef} className="contact-form premium-card" onSubmit={handleSubmit} data-aos="fade-up" data-aos-delay="90">
           <h3>Send Me a Message</h3>
 
           {success && <div className="toast success">✅ {success}</div>}

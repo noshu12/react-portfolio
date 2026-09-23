@@ -102,8 +102,28 @@ export default function Navbar({ scrollY }) {
     <>
       <header className={`navbar ${isScrolled ? 'nav-scrolled' : ''}`}>
         <div className="nav-pill">
-          {/* LEFT SLOT — hamburger below 768px, nav links from 768px up */}
-          <div className="nav-slot nav-slot-left">
+          {/* LEFT SLOT — brand: person icon + NOUSHAD ALAM */}
+          <div className="nav-slot nav-slot-brand">
+            <Link to="/" className="nav-brand" onClick={closeMenu} aria-label="Noushad Alam — home">
+              {brand(18)}
+            </Link>
+          </div>
+
+          {/* CENTER SLOT — desktop nav links (replaced by the drawer below 768px) */}
+          <nav className="nav-center" aria-label="Primary navigation">
+            <ul className="nav-links">
+              {links.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* RIGHT SLOT — "Let's Talk" CTA, then the mobile hamburger on the far right */}
+          <div className="nav-slot nav-slot-actions">
+            <Link to="/contact" className="nav-cta" onClick={closeMenu}>Let's Talk</Link>
+
             <button
               type="button"
               className={`hamburger ${isOpen ? 'active' : ''}`}
@@ -116,24 +136,6 @@ export default function Navbar({ scrollY }) {
               <span></span>
               <span></span>
             </button>
-
-            <ul className="nav-links">
-              {links.map((link) => (
-                <li key={link.to}>
-                  <Link to={link.to}>{link.label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* CENTER SLOT — brand */}
-          <Link to="/" className="nav-brand" onClick={closeMenu} aria-label="Noushad Alam — home">
-            {brand(18)}
-          </Link>
-
-          {/* RIGHT SLOT — contact CTA */}
-          <div className="nav-slot nav-slot-right">
-            <Link to="/contact" className="nav-cta" onClick={closeMenu}>Let's Talk</Link>
           </div>
         </div>
       </header>

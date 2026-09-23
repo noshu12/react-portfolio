@@ -55,7 +55,7 @@ export default function Stats() {
       <div className="stats-container">
         <div className="stats-grid">
           {stats.map((stat, index) => (
-            <div key={stat.id} className="stat-card" data-aos="fade-up" data-aos-delay={index * 100}>
+            <div key={stat.id} className="stat-card" data-aos="fade-up" data-aos-delay={index * 40}>
               <div className="stat-icon">{stat.icon}</div>
               <div className="stat-number">
                 {stat.current}{stat.suffix}

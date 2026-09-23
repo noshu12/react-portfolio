@@ -84,7 +84,7 @@ export default function Services() {
               }
             }}
             data-aos="fade-up"
-            data-aos-delay={index * 100}
+            data-aos-delay={index * 40}
           >
             <div className="service-icon">{service.icon}</div>
             <h3 className="service-title">{service.title}</h3>

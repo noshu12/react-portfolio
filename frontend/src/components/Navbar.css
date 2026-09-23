@@ -13,7 +13,7 @@
   transition: top 0.3s ease;
 }
 
-/* glassmorphism pill */
+/* glassmorphism pill — translucent so content blurs behind it */
 .nav-pill {
   display: flex;
   align-items: center;
@@ -21,23 +21,23 @@
   gap: 1rem;
   width: 100%;
   max-width: 100%;
-  padding: 0.75rem 1.5rem;            /* px-6 py-3 */
-  border-radius: 9999px;              /* rounded-full */
-  background: rgba(255, 255, 255, 0.8);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  backdrop-filter: blur(12px) saturate(180%);
-  border: 1px solid rgba(232, 220, 208, 0.5);
+  padding: 0.75rem 1.5rem;            /* px-6 py-3 (unchanged) */
+  border-radius: 9999px;              /* rounded-full (unchanged) */
+  background: rgba(255, 255, 255, 0.45);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   box-shadow: 0 10px 30px rgba(45, 45, 45, 0.08);
   transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .nav-scrolled .nav-pill {
   padding: 0.5rem 1.25rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.6);
   box-shadow: 0 14px 40px rgba(45, 45, 45, 0.14);
 }
 
-/* three slots: [left = links / hamburger] [center = brand] [right = CTA] */
+/* three slots: [left = brand] [center = nav links] [right = CTA + hamburger] */
 .nav-slot {
   display: flex;
   align-items: center;
@@ -45,10 +45,22 @@
   min-width: 0;
 }
 
-.nav-slot-left { justify-content: flex-start; }
-.nav-slot-right { justify-content: flex-end; }
+.nav-slot-brand { justify-content: flex-start; }
 
-/* ---------------- center slot: brand ---------------- */
+.nav-slot-actions {
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+/* centre slot stays optically centred thanks to the two equal outer slots */
+.nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 1 auto;
+}
+
+/* ---------------- left slot: brand ---------------- */
 .nav-brand {
   display: flex;
   align-items: center;
@@ -384,8 +396,12 @@ body.menu-open {
     padding: 0.6rem 1rem;
   }
 
-  .nav-links {
+  .nav-center {
     display: none;          /* desktop links are replaced by the drawer */
+  }
+
+  .nav-links {
+    display: none;
   }
 
   .hamburger {

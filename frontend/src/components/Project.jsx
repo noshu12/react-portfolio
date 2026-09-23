@@ -145,7 +145,7 @@ export default function Portfolio() {
         </p>
       </div>
 
-      <div className="filter-buttons" data-aos="fade-up" data-aos-delay="100">
+      <div className="filter-buttons" data-aos="fade-up" data-aos-delay="30">
         {categories.map((cat) => (
           <button
             key={cat}
@@ -172,7 +172,7 @@ export default function Portfolio() {
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
             data-aos="fade-up"
-            data-aos-delay={index * 100}
+            data-aos-delay={index * 40}
           >
             <div className="portfolio-card premium-card">
               <div className="portfolio-content">
