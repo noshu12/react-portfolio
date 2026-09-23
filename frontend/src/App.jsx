@@ -45,14 +45,34 @@ function AppContent() {
     }
   }, [])
 
-  // Track page views
+  /*
+   * Turn OFF the browser's native scroll restoration.
+   *
+   * Without this, navigating from a long page (e.g. /project) to a shorter one
+   * keeps the previous scroll offset, and because the new document is shorter the
+   * browser clamps that offset to its maximum — which is exactly the
+   * "page opens already scrolled to the bottom" bug.
+   */
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+  }, [])
+
+  // Track page views + reset scroll position + refresh AOS on route change
   useEffect(() => {
     ReactGA.send({
       hitType: 'pageview',
       page: location.pathname,
       title: document.title
     })
-    
+
+    // Every freshly opened route starts at the very top.
+    // `behavior: 'instant'` is required because global.css sets
+    // `html { scroll-behavior: smooth }` — without it the reset would animate
+    // down the new page instead of snapping to the top.
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+
     // Refresh AOS on route change
     AOS.refresh()
   }, [location.pathname])
