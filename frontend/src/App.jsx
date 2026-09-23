@@ -73,10 +73,12 @@ function AppContent() {
 
   return (
     <div className="app">
-      <div className="animated-gradient"></div>
-      <div className="blob blob-1"></div>
-      <div className="blob blob-2"></div>
-      <div className="blob blob-3"></div>
+      <div className="bg-decor" aria-hidden="true">
+        <div className="animated-gradient"></div>
+        <div className="blob blob-1"></div>
+        <div className="blob blob-2"></div>
+        <div className="blob blob-3"></div>
+      </div>
 
       <Navbar scrollY={scrollY} />
 
@@ -89,7 +91,7 @@ function AppContent() {
       </Routes>
 
       <footer className="footer">
-        <p>Â© 2024 Noushad Alam. All rights reserved.</p>
+        <p>© 2024 Noushad Alam. All rights reserved.</p>
         <div className="footer-divider"></div>
       </footer>
     </div>

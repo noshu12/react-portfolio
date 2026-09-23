@@ -1,6 +1,8 @@
 .about-section {
   min-height: 100vh;
   width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   padding: 6rem 2rem;
   margin: 0;
   display: flex;
@@ -274,7 +276,7 @@ html[data-theme="light"] .skill-bar {
 /* Small mobile (480px and below) */
 @media (max-width: 480px) {
   .about-section {
-    padding: 4rem 1.5rem;
+    padding: 6.5rem 1.25rem 3rem;
   }
 
   .about-content {

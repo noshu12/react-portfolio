@@ -1,6 +1,8 @@
 .contact-section {
   min-height: 100vh;
   width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   padding: 6rem 2rem;
   margin: 0;
   display: flex;

@@ -27,7 +27,10 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: 96px;      /* clears the floating pill navbar */
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;             /* clip (not hidden): keeps position:sticky working */
 }
 
 body {
@@ -35,8 +38,16 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.6;
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 ::-webkit-scrollbar {
@@ -177,7 +188,7 @@ html[data-theme="light"] .premium-card:hover {
 
 @media (max-width: 768px) {
   .section {
-    padding: 3rem 1rem;
+    padding: 6.5rem 1.25rem 3rem;
   }
 
   .section-title {
