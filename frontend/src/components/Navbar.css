@@ -85,7 +85,7 @@
 
 .nav-brand-text {
   font-family: 'Playfair Display', serif;
-  font-size: 1.125rem;                /* md:text-lg — larger, matches avatar height */
+  font-size: 1.3rem;                  /* noticeably larger name, balanced vs 34px avatar */
   font-weight: 600;                   /* font-semibold */
   letter-spacing: 0.2em;              /* tracking-widest */
   white-space: nowrap;
@@ -409,12 +409,11 @@ body.menu-open {
   }
 
   .nav-cta {
-    padding: 0.5rem 0.95rem;
-    font-size: 0.8rem;
+    display: none;          /* drawer already has the CTA — frees room for the name */
   }
 
   .nav-brand-text {
-    font-size: 1rem;                    /* text-base — mobile, taller than before */
+    font-size: 1.15rem;                 /* mobile — matches taller avatar */
     letter-spacing: 0.16em;
   }
 
@@ -425,12 +424,8 @@ body.menu-open {
 }
 
 @media (max-width: 380px) {
-  .nav-cta {
-    display: none;          /* "Contact" still reachable from the drawer */
-  }
-
   .nav-brand-text {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     letter-spacing: 0.12em;
   }
 }
